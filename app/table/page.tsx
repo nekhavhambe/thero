@@ -1,13 +1,14 @@
 "use client";
 
 
+
 import DataGrid, {
   type ColumnOrColumnGroup,
   renderValue,
   textEditor,
   // Inputs
 } from "react-data-grid";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Inputs from './Input'
 
 // import { renderCoordinates } from "./renderers";
@@ -234,8 +235,14 @@ lists = lists.map( el => {
 
     let new_el = el
     new_el.cashflow_monthly = JSON.parse(new_el.cashflow_monthly)
+    let flow:any = new_el.cashflow_monthly
+    const transformedObject:any = {};
+    for (const [month, data] of Object.entries(flow)) {
+        transformedObject[month] = data.amount;
+    }
+    
     new_el.cashflow = aggregateMonthlyTotals(JSON.parse(new_el.cashflow))
-    return new_el
+    return {...new_el, ...transformedObject}
 
 })
 
@@ -416,17 +423,45 @@ const columns = [
         key: "1",
         name: "Task Order",
         frozen: true,
-        width: "200px",
+        width: "350px",
         renderCell(props:any) {
           return props.row['name'];
         }
       },
       {
         key: "3",
-        name: "Value",
+        name: "Value (Excl)",
         width: "140px",
         renderCell(props:any) {
           return props.row['value'];
+        },
+
+      },
+      {
+        key: "3A",
+        name: "Vat",
+        width: "140px",
+        renderCell(props:any) {
+          let amount = Number(props.row['value'].replace(/\s+/g, ''))*(15/100);
+          return new Intl.NumberFormat('en-US', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+            useGrouping: true
+          }).format(amount).replace(/,/g, ' ');
+        },
+
+      },
+      {
+        key: "3B",
+        name: "Total Value (Incl)",
+        width: "140px",
+        renderCell(props:any) {
+          let amount = Number(props.row['value'].replace(/\s+/g, ''))*(115/100);
+          return new Intl.NumberFormat('en-US', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+            useGrouping: true
+          }).format(amount).replace(/,/g, ' ');
         },
 
       },
@@ -458,7 +493,7 @@ const columns = [
       },
       {
         key: "6",
-        name: "Total Claimed",
+        name: "Total Claimed (Incl)",
         width: "150px",
         renderCell(props:any) {
             let num:any = (Number(props.row['billed'].replace(/\s+/g, ''))*(115/100)).toFixed(2);
@@ -473,10 +508,24 @@ const columns = [
         key: "forecast",
         width: "150px",
         name: "Budget Remaining",
-        renderEditCell: Inputs
-        // renderCell(props:any) {
-        //     return props.row['forecast'];
-        //   },
+        renderCell(props:any) {
+         let amount = 0
+         for (const key in props.row) {
+
+          if (key.includes("Month Ended")) {
+              amount += Number(props.row[key])
+              console.log(`${key}: ${props.row[key]}`);
+          }
+      }
+
+            let value =  Number(props.row.value.replace(/\s+/g, ''))
+            let diff = (value - amount) * (115/100)
+            return new Intl.NumberFormat('en-US', {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+              useGrouping: true
+            }).format(diff).replace(/,/g, ' ');
+          },
       },
     ],
   },
@@ -485,7 +534,7 @@ const columns = [
 ];
 
 const rows = lists;
-console.log(rows);
+
 
 function rowKeyGetter(row:any) {
   return row.id;
@@ -493,7 +542,47 @@ function rowKeyGetter(row:any) {
 
 export default function ColumnGrouping({  }) {
     const [rowss, setRowss] = useState(rows);
+
     const [selectedRows, setSelectedRows] = useState((): ReadonlySet<number> => new Set());
+
+
+    useEffect(() => {
+      const handleMessage = (event:any) => {
+        let data :any = event.data.content
+
+        data  = data.map( (el:any) => {
+          let new_el = el
+          new_el.cashflow_monthly = JSON.parse(new_el.cashflow_monthly)
+          let flow:any = new_el.cashflow_monthly
+          const transformedObject:any = {};
+for (const [month, data] of Object.entries(flow)) {
+    transformedObject[month] = data.amount;
+}
+
+          new_el.cashflow = aggregateMonthlyTotals(JSON.parse(new_el.cashflow))
+          return {...new_el, ...transformedObject}
+      })
+
+      setRowss(data)
+
+        console.log('Received message:', data);
+      };
+  
+      window.addEventListener('message', handleMessage);
+
+      // iframe document
+
+       // Send a message to the parent window
+      window.parent.postMessage('loaded', '*');
+
+  
+      // Clean up the event listener when the component is unmounted
+      return () => {
+        window.removeEventListener('message', handleMessage);
+      };
+    }, []); //
+
+
   return (
     <>
     
@@ -504,7 +593,10 @@ export default function ColumnGrouping({  }) {
     //   rowKeyGetter={rowKeyGetter}
       columns={columns}
       rows={rowss}
-      onRowsChange={setRowss}
+      onRowsChange={(el) => {
+        console.log(el, 'running very fine')
+        setRowss(el)
+      }}
       onSelectedRowsChange={setSelectedRows}
       topSummaryRows={[0]}
       bottomSummaryRows={[8]}

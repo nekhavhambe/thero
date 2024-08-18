@@ -46,11 +46,12 @@ export default function textEditor({
 }: any) {
   return (
     <input
- 
       ref={autoFocusAndSelect}
       value={row[column.key]}
-      onChange={(event) => onRowChange({ ...row, [column.key]: event.target.value })}
-      onBlur={() => onClose(true, false)}
+      onChange={(event) => {
+        onRowChange({ ...row, [column.key]: event.target.value })}}
+      onBlur={(e) => { 
+        onClose(true, false)}}
     />
   );
 }
