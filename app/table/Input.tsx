@@ -47,6 +47,10 @@ export default function textEditor({
   return (
     <input
     //   className={textEditorClassname}
+    style={{
+        backgroundColor:"red",
+        height:200
+    }}
       ref={autoFocusAndSelect}
       value={row[column.key]}
       onChange={(event) => onRowChange({ ...row, [column.key]: event.target.value })}
