@@ -253,285 +253,6 @@ function formatDateToCustomFormat(date:any) {
   return new Intl.DateTimeFormat("en-GB", options).format(date);
 }
 
-function getFinancialYearPeriods() {
-  const today = new Date();
-  const year = today.getFullYear();
-
-  // Financial year starts on March 1st of the current year or previous year
-  const financialYearStart = new Date(year, 2, 1); // March 1st of the current year
-  if (today < financialYearStart) {
-    // If today is before March 1st, the financial year starts last year
-    financialYearStart.setFullYear(year - 1);
-  }
-
-  // Calculate the start and end dates for the current financial year
-  const financialYearEnd = new Date(financialYearStart);
-  financialYearEnd.setFullYear(financialYearStart.getFullYear() + 1);
-  financialYearEnd.setMonth(1); // February
-  financialYearEnd.setDate(29); // To ensure it's a leap year if necessary
-
-  // Periods for the current financial year
-  const currentYearPeriods = [];
-  let periodStart = new Date(financialYearStart);
-
-  for (let i = 0; i < 24; i++) {
-    // Get the end of the month
-    const endOfMonth = new Date(
-      periodStart.getFullYear(),
-      periodStart.getMonth() + 1,
-      0
-    );
-
-    // Format for "Month Ended September 2024"
-    const monthEnded = `Month Ended ${formatDateToCustomFormat(endOfMonth)}`;
-
-    currentYearPeriods.push({
-      name: monthEnded, // Only the formatted month and year,
-      children: [
-        { key: "2" + i, name: "Claimed", width: "190px", renderCell(props:any) {
-
-            if(props.row.cashflow[props.column.parent.name]){
-                    let amount = (Number(props.row.cashflow[props.column.parent.name])) //* (100/115)
-                    return new Intl.NumberFormat('en-US', {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                        useGrouping: true
-                      }).format(amount).replace(/,/g, ' ');
-            }
-            
-            return "0.00"
-          }  },
-        { key: "3" + i, name: "Vat" ,width: "150px" ,renderCell(props:any) {
-
-            if(props.row.cashflow[props.column.parent.name]){
-                    let amount = (Number(props.row.cashflow[props.column.parent.name])) * (15/100)
-                    return new Intl.NumberFormat('en-US', {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                        useGrouping: true
-                      }).format(amount).replace(/,/g, ' ');
-            }
-            
-            return "0.00"
-          }},
-        { key: "4"+i, name: "Total Claimed" , renderCell(props:any) {
-
-            if(props.row.cashflow[props.column.parent.name]){
-                    let amount = (Number(props.row.cashflow[props.column.parent.name])) * (115/100)
-                    return new Intl.NumberFormat('en-US', {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                        useGrouping: true
-                      }).format(amount).replace(/,/g, ' ');
-            }
-            
-            return "0.00"
-          }},
-        { key: monthEnded, name: "Budgted", width:"150px", renderEditCell: Inputs ,renderCell(props:any) {
-            let amount = 0;
-            if(props.row[props.column.parent.name]){
-               amount = (Number(props.row[props.column.parent.name]))
-            }else if(props.row.cashflow_monthly[props.column.parent.name]){
-                amount = (Number(props.row.cashflow_monthly[props.column.parent.name].amount)) * (100/100)
-            }
-            
-            return new Intl.NumberFormat('en-US', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-                useGrouping: true
-              }).format(amount).replace(/,/g, ' ');
-
-          } },
-        { key: "6"+i, name: "Vat",width:"150px" ,renderCell(props:any) {
-            let amount = 0;
-            if(props.row[props.column.parent.name]){
-                    amount = props.row[props.column.parent.name] * (15/100)
-
-            }else if(props.row.cashflow_monthly[props.column.parent.name]){
-                amount = (Number(props.row.cashflow_monthly[props.column.parent.name].amount)) * (15/100)
-            }
-            
-            return  new Intl.NumberFormat('en-US', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-                useGrouping: true
-              }).format(amount).replace(/,/g, ' ');
-           }},
-
-
-        { key: "7"+i, name: "Total Budgted", width:"150px",renderCell(props:any) {
-
-
-            
-
-            let amount = 0;
-            if(props.row[props.column.parent.name]){
-                amount = props.row[props.column.parent.name] * (115/100)
-
-            }else if(props.row.cashflow_monthly[props.column.parent.name]){
-                amount = (Number(props.row.cashflow_monthly[props.column.parent.name].amount)) * (115/100)
-            }
-            
-            return  new Intl.NumberFormat('en-US', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-                useGrouping: true
-              }).format(amount).replace(/,/g, ' ');
-           
-           } },
-        { key: "8"+i, name: "Over/Under Billed", renderCell(props:any) {
-
-            let  totoal_budget  = 0;
-            if(props.row[props.column.parent.name]){
-                totoal_budget = props.row[props.column.parent.name] * (115/100)
-
-            }else if(props.row.cashflow_monthly[props.column.parent.name]){
-                totoal_budget = (Number(props.row.cashflow_monthly[props.column.parent.name].amount)) * (115/100)
-            }
-            
-            let actual = 0; 
-            if(props.row.cashflow[props.column.parent.name]){
-                actual = (Number(props.row.cashflow[props.column.parent.name])) * (115/100)
-            }
-            
-            let diff = actual - totoal_budget
-             return  new Intl.NumberFormat('en-US', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-                useGrouping: true
-              }).format(diff).replace(/,/g, ' ');
-           } },
-      ],
-      key: "9"+i,
-    });
-
-    // Move to the next month
-    periodStart.setMonth(periodStart.getMonth() + 1);
-  }
-
-  return currentYearPeriods;
-}
-
-console.log(getFinancialYearPeriods());
-let res = getFinancialYearPeriods();
-const columns = [
-  {
-    name: "Project Billing Projections",
-
-    children: [
-      {
-        key: "1",
-        name: "Task Order",
-        frozen: true,
-        width: "350px",
-        renderCell(props:any) {
-          return props.row['name'];
-        }
-      },
-      {
-        key: "3",
-        name: "Value (Excl)",
-        width: "140px",
-        renderCell(props:any) {
-          return props.row['value'];
-        },
-
-      },
-      {
-        key: "3A",
-        name: "Vat",
-        width: "140px",
-        renderCell(props:any) {
-          let amount = Number(props.row['value'].replace(/\s+/g, ''))*(15/100);
-          return new Intl.NumberFormat('en-US', {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-            useGrouping: true
-          }).format(amount).replace(/,/g, ' ');
-        },
-
-      },
-      {
-        key: "3B",
-        name: "Total Value (Incl)",
-        width: "140px",
-        renderCell(props:any) {
-          let amount = Number(props.row['value'].replace(/\s+/g, ''))*(115/100);
-          return new Intl.NumberFormat('en-US', {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-            useGrouping: true
-          }).format(amount).replace(/,/g, ' ');
-        },
-
-      },
-      {
-        key: "4",
-        name: "Claimed Excl",
-        width: "140px",
-        renderCell(props:any) {
-            let num = (Number(props.row['billed'].replace(/\s+/g, ''))*(100/100))
-            return new Intl.NumberFormat('en-US', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-                useGrouping: true
-              }).format(num).replace(/,/g, ' ');
-          },
-      },
-      {
-        key: "5",
-        name: "Vat",
-        width: "150px",
-        renderCell(props:any) {
-            let num:any = (Number(props.row['billed'].replace(/\s+/g, ''))*(15/100)).toFixed(2);
-            return new Intl.NumberFormat('en-US', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-                useGrouping: true
-              }).format(num).replace(/,/g, ' ');
-          },
-      },
-      {
-        key: "6",
-        name: "Total Claimed (Incl)",
-        width: "150px",
-        renderCell(props:any) {
-            let num:any = (Number(props.row['billed'].replace(/\s+/g, ''))*(115/100)).toFixed(2);
-            return new Intl.NumberFormat('en-US', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-                useGrouping: true
-              }).format(num).replace(/,/g, ' ');
-          },
-      },
-      {
-        key: "forecast",
-        width: "150px",
-        name: "Budget Remaining",
-        renderCell(props:any) {
-         let amount = 0
-         for (const key in props.row) {
-
-          if (key.includes("Month Ended")) {
-              amount += Number(props.row[key])
-              console.log(`${key}: ${props.row[key]}`);
-          }
-      }
-
-            let value =  Number(props.row.value.replace(/\s+/g, ''))
-            let diff = (value - amount) * (115/100)
-            return new Intl.NumberFormat('en-US', {
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-              useGrouping: true
-            }).format(diff).replace(/,/g, ' ');
-          },
-      },
-    ],
-  },
-  { key: "8", name: " " },
-  ...res,
-];
 
 const rows = lists;
 
@@ -544,6 +265,458 @@ export default function ColumnGrouping({  }) {
     const [rowss, setRowss] = useState(rows);
 
     const [selectedRows, setSelectedRows] = useState((): ReadonlySet<number> => new Set());
+
+    function getFinancialYearPeriods() {
+      const today = new Date();
+      const year = today.getFullYear();
+    
+      // Financial year starts on March 1st of the current year or previous year
+      const financialYearStart = new Date(year, 2, 1); // March 1st of the current year
+      if (today < financialYearStart) {
+        // If today is before March 1st, the financial year starts last year
+        financialYearStart.setFullYear(year - 1);
+      }
+    
+      // Calculate the start and end dates for the current financial year
+      const financialYearEnd = new Date(financialYearStart);
+      financialYearEnd.setFullYear(financialYearStart.getFullYear() + 1);
+      financialYearEnd.setMonth(1); // February
+      financialYearEnd.setDate(29); // To ensure it's a leap year if necessary
+    
+      // Periods for the current financial year
+      const currentYearPeriods = [];
+      let periodStart = new Date(financialYearStart);
+    
+      for (let i = 0; i < 24; i++) {
+        // Get the end of the month
+        const endOfMonth = new Date(
+          periodStart.getFullYear(),
+          periodStart.getMonth() + 1,
+          0
+        );
+    
+        // Format for "Month Ended September 2024"
+        const monthEnded = `Month Ended ${formatDateToCustomFormat(endOfMonth)}`;
+    
+        currentYearPeriods.push({
+          name: monthEnded, // Only the formatted month and year,
+          children: [
+            { key: "2" + i, name: "Claimed", width: "190px",            
+            renderSummaryCell(propss:any) {
+              let total = 0;
+
+              rowss.forEach((props:any) => {
+
+                if(props.cashflow[propss.column.parent.name]){
+                  let amount = (Number(props.cashflow[propss.column.parent.name])) //* (100/115)
+                  total += amount
+                 }
+      
+                
+              })
+              
+              return  new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+                useGrouping: true
+              }).format(total).replace(/,/g, ' ');
+            }, 
+            renderCell(props:any) {
+    
+                if(props.row.cashflow[props.column.parent.name]){
+                        let amount = (Number(props.row.cashflow[props.column.parent.name])) //* (100/115)
+                        return new Intl.NumberFormat('en-US', {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2,
+                            useGrouping: true
+                          }).format(amount).replace(/,/g, ' ');
+                }
+                
+                return "0.00"
+              }  },
+            { key: "3" + i, name: "Vat" ,width: "150px" ,
+            renderSummaryCell(propss:any) {
+              let total = 0;
+
+              rowss.forEach((props:any) => {
+
+                if(props.cashflow[propss.column.parent.name]){
+                  let amount = (Number(props.cashflow[propss.column.parent.name])) * (15/100)
+                  total += amount
+                 }
+      
+                
+              })
+              
+              return  new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+                useGrouping: true
+              }).format(total).replace(/,/g, ' ');
+            }, 
+            renderCell(props:any) {
+    
+                if(props.row.cashflow[props.column.parent.name]){
+                        let amount = (Number(props.row.cashflow[props.column.parent.name])) * (15/100)
+                        return new Intl.NumberFormat('en-US', {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2,
+                            useGrouping: true
+                          }).format(amount).replace(/,/g, ' ');
+                }
+                
+                return "0.00"
+              }},
+            { key: "4"+i, name: "Total Claimed" , 
+            
+            renderSummaryCell(propss:any) {
+              let total = 0;
+
+              rowss.forEach((props:any) => {
+
+                if(props.cashflow[propss.column.parent.name]){
+                  let amount = (Number(props.cashflow[propss.column.parent.name])) * (115/100)
+                  total += amount
+                 }
+      
+                
+              })
+              
+              return  new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+                useGrouping: true
+              }).format(total).replace(/,/g, ' ');
+            }, 
+            renderCell(props:any) {
+    
+                if(props.row.cashflow[props.column.parent.name]){
+                        let amount = (Number(props.row.cashflow[props.column.parent.name])) * (115/100)
+                        return new Intl.NumberFormat('en-US', {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2,
+                            useGrouping: true
+                          }).format(amount).replace(/,/g, ' ');
+                }
+                
+                return "0.00"
+              }},
+            { key: monthEnded, name: "Budgted", width:"150px", renderEditCell: Inputs ,renderCell(props:any) {
+                let amount = 0;
+                if(props.row[props.column.parent.name]){
+                   amount = (Number(props.row[props.column.parent.name]))
+                }else if(props.row.cashflow_monthly[props.column.parent.name]){
+                    amount = (Number(props.row.cashflow_monthly[props.column.parent.name].amount)) * (100/100)
+                }
+                
+                return new Intl.NumberFormat('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                    useGrouping: true
+                  }).format(amount).replace(/,/g, ' ');
+    
+              } },
+            { key: "6"+i, name: "Vat",width:"150px" ,renderCell(props:any) {
+                let amount = 0;
+                if(props.row[props.column.parent.name]){
+                        amount = props.row[props.column.parent.name] * (15/100)
+    
+                }else if(props.row.cashflow_monthly[props.column.parent.name]){
+                    amount = (Number(props.row.cashflow_monthly[props.column.parent.name].amount)) * (15/100)
+                }
+                
+                return  new Intl.NumberFormat('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                    useGrouping: true
+                  }).format(amount).replace(/,/g, ' ');
+               }},
+    
+    
+            { key: "7"+i, name: "Total Budgted", width:"150px",renderCell(props:any) {
+    
+    
+                
+    
+                let amount = 0;
+                if(props.row[props.column.parent.name]){
+                    amount = props.row[props.column.parent.name] * (115/100)
+    
+                }else if(props.row.cashflow_monthly[props.column.parent.name]){
+                    amount = (Number(props.row.cashflow_monthly[props.column.parent.name].amount)) * (115/100)
+                }
+                
+                return  new Intl.NumberFormat('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                    useGrouping: true
+                  }).format(amount).replace(/,/g, ' ');
+               
+               } },
+            { key: "8"+i, name: "Over/Under Billed", renderCell(props:any) {
+    
+                let  totoal_budget  = 0;
+                if(props.row[props.column.parent.name]){
+                    totoal_budget = props.row[props.column.parent.name] * (115/100)
+    
+                }else if(props.row.cashflow_monthly[props.column.parent.name]){
+                    totoal_budget = (Number(props.row.cashflow_monthly[props.column.parent.name].amount)) * (115/100)
+                }
+                
+                let actual = 0; 
+                if(props.row.cashflow[props.column.parent.name]){
+                    actual = (Number(props.row.cashflow[props.column.parent.name])) * (115/100)
+                }
+                
+                let diff = actual - totoal_budget
+                 return  new Intl.NumberFormat('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                    useGrouping: true
+                  }).format(diff).replace(/,/g, ' ');
+               } },
+          ],
+          key: "9"+i,
+        });
+    
+        // Move to the next month
+        periodStart.setMonth(periodStart.getMonth() + 1);
+      }
+    
+      return currentYearPeriods;
+    }
+    
+    let res = getFinancialYearPeriods();
+
+    const columns = [
+      {
+        name: "Project Billing Projections",
+    
+        children: [
+          {
+            key: "1",
+            name: "Task Order",
+            frozen: true,
+            width: "350px",
+            renderCell(props:any) {
+              return props.row['name'];
+            }
+          },
+          {
+            key: "3",
+            name: "Value (Excl)",
+            width: "140px",
+            renderSummaryCell() {
+              let total = 0;
+              console.log(rows, )
+              rowss.forEach((props:any) => {
+                let amount =(Number(props['value'].replace(/\s+/g, ''))*(100/100))
+                total += amount
+              })
+              
+              return  new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+                useGrouping: true
+              }).format(total).replace(/,/g, ' ');
+            },
+            renderCell(props:any) {
+              return props.row['value'];
+            },
+    
+          },
+          {
+            key: "3A",
+            name: "Vat",
+            width: "140px",
+            renderSummaryCell() {
+              let total = 0;
+              console.log(rows, )
+              rowss.forEach((props:any) => {
+                let amount =(Number(props['value'].replace(/\s+/g, ''))*(15/100))
+                total += amount
+              })
+              
+              return  new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+                useGrouping: true
+              }).format(total).replace(/,/g, ' ');
+            },
+            renderCell(props:any) {
+              let amount = Number(props.row['value'].replace(/\s+/g, ''))*(15/100);
+              return new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+                useGrouping: true
+              }).format(amount).replace(/,/g, ' ');
+            },
+    
+          },
+          {
+            key: "3B",
+            name: "Total Value (Incl)",
+            width: "140px",
+            renderSummaryCell() {
+              let total = 0;
+              console.log(rows, )
+              rowss.forEach((props:any) => {
+                let amount =(Number(props['value'].replace(/\s+/g, ''))*(115/100))
+                total += amount
+              })
+              
+              return  new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+                useGrouping: true
+              }).format(total).replace(/,/g, ' ');
+            },
+            renderCell(props:any) {
+              let amount = Number(props.row['value'].replace(/\s+/g, ''))*(115/100);
+              return new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+                useGrouping: true
+              }).format(amount).replace(/,/g, ' ');
+            },
+    
+          },
+          {
+            key: "4",
+            name: "Claimed Excl",
+            width: "140px",
+            renderSummaryCell() {
+              let total = 0;
+              console.log(rows, )
+              rowss.forEach((props:any) => {
+                let amount =(Number(props['billed'].replace(/\s+/g, ''))*(100/100))
+                console.log(amount,props['billed'], "in the vat" )
+                total += amount
+              })
+              
+              return  new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+                useGrouping: true
+              }).format(total).replace(/,/g, ' ');
+            },
+            renderCell(props:any) {
+             
+                let num = (Number(props.row['billed'].replace(/\s+/g, '')))
+                return new Intl.NumberFormat('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                    useGrouping: true
+                  }).format(num).replace(/,/g, ' ');
+              },
+          },
+          {
+            key: "5",
+            name: "Vat",
+            width: "150px",
+            renderSummaryCell() {
+              let total = 0;
+              rowss.forEach((props:any) => {
+                let amount =(Number(props['billed'].replace(/\s+/g, ''))*(15/100))
+                console.log(amount,props['billed'], "in the vat" )
+                total += amount
+              })
+              
+              return  new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+                useGrouping: true
+              }).format(total).replace(/,/g, ' ');
+            },
+            renderCell(props:any) {
+                let num:any = (Number(props.row['billed'].replace(/\s+/g, ''))*(15/100)).toFixed(2);
+                return new Intl.NumberFormat('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                    useGrouping: true
+                  }).format(num).replace(/,/g, ' ');
+              },
+          },
+          {
+            key: "6",
+            name: "Total Claimed (Incl)",
+            width: "150px",
+            renderSummaryCell() {
+              let total = 0;
+              rowss.forEach((props:any) => {
+                let amount =(Number(props['billed'].replace(/\s+/g, ''))*(115/100))
+                total += amount
+              })
+              
+              return  new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+                useGrouping: true
+              }).format(total).replace(/,/g, ' ');
+            },
+            renderCell(props:any) {
+                let num:any = (Number(props.row['billed'].replace(/\s+/g, ''))*(115/100)).toFixed(2);
+                return new Intl.NumberFormat('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                    useGrouping: true
+                  }).format(num).replace(/,/g, ' ');
+              },
+          },
+          {
+            key: "forecast",
+            width: "150px",
+            name: "Budget Remaining",
+            renderSummaryCell() {
+              let total = 0;
+              rowss.forEach((props:any) => {
+                console.log(props, "total calculation")
+                let amount = 0
+                for (const key in props) {
+       
+                 if (key.includes("Month Ended")) {
+                     amount += Number(props[key])
+                     //console.log(`${key}: ${props.row[key]}`);
+                 }
+             }
+       
+                   let value =  Number(props.value.replace(/\s+/g, ''))
+                   let diff = (value - amount) * (115/100)
+                   total += diff;
+    
+              })
+              
+              return  new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+                useGrouping: true
+              }).format(total).replace(/,/g, ' ');
+            },
+            renderCell(props:any) {
+             let amount = 0
+             for (const key in props.row) {
+    
+              if (key.includes("Month Ended")) {
+                  amount += Number(props.row[key])
+                  console.log(`${key}: ${props.row[key]}`);
+              }
+          }
+    
+                let value =  Number(props.row.value.replace(/\s+/g, ''))
+                let diff = (value - amount) * (115/100)
+                return new Intl.NumberFormat('en-US', {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                  useGrouping: true
+                }).format(diff).replace(/,/g, ' ');
+              },
+          },
+        ],
+      },
+      { key: "8", name: " " },
+      ...res,
+    ];
+    
 
 
     useEffect(() => {
