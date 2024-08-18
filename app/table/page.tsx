@@ -1,5 +1,5 @@
 "use client";
-import "react-data-grid/lib/styles.css";
+import "./styles.css";
 import DataGrid, {
   type ColumnOrColumnGroup,
   renderValue,
