@@ -7,7 +7,7 @@ import DataGrid, {
 } from "react-data-grid";
 import React, {useState} from "react";
 
-import { renderCoordinates } from "./renderers";
+// import { renderCoordinates } from "./renderers";
 // import type { Props } from './types';
 
 let lists = [
@@ -187,11 +187,11 @@ let lists = [
   },
 ];
 
-function aggregateMonthlyTotals(data) {
+function aggregateMonthlyTotals(data:any) {
     // Object to store the sum of amounts for each month
     const monthlyTotals = {};
 
-    data.forEach(entry => {
+    data.forEach((entry: any )=> {
         const amount = entry.amount;
         const dateStr = entry.date;
 
@@ -238,7 +238,7 @@ lists = lists.map( el => {
 
 console.log("updated el", lists)
 
-function formatDateToCustomFormat(date) {
+function formatDateToCustomFormat(date:any) {
   const options = { month: "long", year: "numeric" };
   return new Intl.DateTimeFormat("en-GB", options).format(date);
 }
@@ -484,11 +484,11 @@ const columns = [
 const rows = lists;
 console.log(rows);
 
-function rowKeyGetter(row) {
+function rowKeyGetter(row:any) {
   return row.id;
 }
 
-export default function ColumnGrouping({ direction }) {
+export default function ColumnGrouping({  }) {
     const [rowss, setRowss] = useState(rows);
     const [selectedRows, setSelectedRows] = useState((): ReadonlySet<number> => new Set());
   return (
@@ -502,7 +502,7 @@ export default function ColumnGrouping({ direction }) {
       topSummaryRows={[0]}
       bottomSummaryRows={[8]}
       className="fill-grid"
-      direction={direction}
+      // direction={direction}
       selectedRows={selectedRows}
       defaultColumnOptions={
         {
