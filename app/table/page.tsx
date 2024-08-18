@@ -3,9 +3,10 @@ import "./styles.css";
 import DataGrid, {
   type ColumnOrColumnGroup,
   renderValue,
-  textEditor
+  // Inputs
 } from "react-data-grid";
 import React, {useState} from "react";
+import Inputs from './Input'
 
 // import { renderCoordinates } from "./renderers";
 // import type { Props } from './types';
@@ -317,7 +318,7 @@ function getFinancialYearPeriods() {
             
             return "0.00"
           }},
-        { key: monthEnded, name: "Budgted", width:"150px", renderEditCell: textEditor ,renderCell(props:any) {
+        { key: monthEnded, name: "Budgted", width:"150px", renderEditCell: Inputs ,renderCell(props:any) {
             let amount = 0;
             if(props.row[props.column.parent.name]){
                amount = (Number(props.row[props.column.parent.name]))
@@ -470,7 +471,7 @@ const columns = [
         key: "forecast",
         width: "150px",
         name: "Budget Remaining",
-        renderEditCell: textEditor
+        renderEditCell: Inputs
         // renderCell(props:any) {
         //     return props.row['forecast'];
         //   },

@@ -18,11 +18,11 @@ main::before {
 }
 
 
-.input {
+input {
   appearance: none;
   box-sizing: border-box;
-  width: 100% !important;
-  height: 100% !important;
+  width: 100px !important;
+  height: 100px !important;
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 6px;
@@ -30,17 +30,17 @@ main::before {
   border: 2px solid red !important;
   vertical-align: top;
   color: green;
-  background-color: pink;
+  background-color: pink  !important;
   font-family: inherit;
   font-size: 60px;
 }
 
-.input:focus {
+input:focus {
   border-color: red;
   outline: none;
 }
 
-.input::placeholder {
+input::placeholder {
   color: #999;
   opacity: 1;
 }
