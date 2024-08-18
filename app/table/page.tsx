@@ -401,7 +401,31 @@ export default function ColumnGrouping({  }) {
                 
                 return "0.00"
               }},
-            { key: monthEnded, name: "Budgted", width:"150px", renderEditCell: Inputs ,renderCell(props:any) {
+            { key: monthEnded, name: "Budgted", width:"150px", renderEditCell: Inputs ,
+            renderSummaryCell(propss:any) {
+              let total = 0;
+
+              rowss.forEach((props:any) => {
+
+                let amount = 0;
+                if(props[propss.column.parent.name]){
+                   amount = (Number(props[propss.column.parent.name]))
+                }else if(props.cashflow_monthly[propss.column.parent.name]){
+                  amount = (Number(props.cashflow_monthly[propss.column.parent.name].amount)) * (100/100)
+              }
+    
+                  total += amount
+                
+              })
+              
+              return  new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+                useGrouping: true
+              }).format(total).replace(/,/g, ' ');
+            }, 
+            
+            renderCell(props:any) {
                 let amount = 0;
                 if(props.row[props.column.parent.name]){
                    amount = (Number(props.row[props.column.parent.name]))
@@ -416,7 +440,34 @@ export default function ColumnGrouping({  }) {
                   }).format(amount).replace(/,/g, ' ');
     
               } },
-            { key: "6"+i, name: "Vat",width:"150px" ,renderCell(props:any) {
+            { key: "6"+i, name: "Vat",width:"150px" ,
+            
+            renderSummaryCell(propss:any) {
+              let total = 0;
+
+              rowss.forEach((props:any) => {
+
+                let amount = 0;
+                if(props[propss.column.parent.name]){
+                   amount = (Number(props[propss.column.parent.name])) * (15/100)
+                }else if(props.cashflow_monthly[propss.column.parent.name]){
+                  amount = (Number(props.cashflow_monthly[propss.column.parent.name].amount)) * (15/100)
+              }
+    
+                  total += amount
+                
+              })
+              
+              return  new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+                useGrouping: true
+              }).format(total).replace(/,/g, ' ');
+            }, 
+
+
+            
+            renderCell(props:any) {
                 let amount = 0;
                 if(props.row[props.column.parent.name]){
                         amount = props.row[props.column.parent.name] * (15/100)
@@ -433,10 +484,34 @@ export default function ColumnGrouping({  }) {
                }},
     
     
-            { key: "7"+i, name: "Total Budgted", width:"150px",renderCell(props:any) {
+            { key: "7"+i, name: "Total Budgted", width:"150px",
+            
+            
+            renderSummaryCell(propss:any) {
+              let total = 0;
+
+              rowss.forEach((props:any) => {
+
+                let amount = 0;
+                if(props[propss.column.parent.name]){
+                   amount = (Number(props[propss.column.parent.name])) * (115/100)
+                }else if(props.cashflow_monthly[propss.column.parent.name]){
+                  amount = (Number(props.cashflow_monthly[propss.column.parent.name].amount)) * (115/100)
+              }
     
-    
+                  total += amount
                 
+              })
+              
+              return  new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+                useGrouping: true
+              }).format(total).replace(/,/g, ' ');
+            }, 
+
+            
+            renderCell(props:any) {
     
                 let amount = 0;
                 if(props.row[props.column.parent.name]){
@@ -453,7 +528,41 @@ export default function ColumnGrouping({  }) {
                   }).format(amount).replace(/,/g, ' ');
                
                } },
-            { key: "8"+i, name: "Over/Under Billed", renderCell(props:any) {
+            { key: "8"+i, name: "Over/Under Billed", 
+            
+            
+            renderSummaryCell(propss:any) {
+              let total = 0;
+
+              rowss.forEach((props:any) => {
+
+                let amount = 0;
+                if(props[propss.column.parent.name]){
+                   amount = (Number(props[propss.column.parent.name])) * (115/100)
+                }else if(props.cashflow_monthly[propss.column.parent.name]){
+                  amount = (Number(props.cashflow_monthly[propss.column.parent.name].amount)) * (115/100)
+              }
+
+              let actual = 0; 
+              if(props.cashflow[propss.column.parent.name]){
+                  actual = (Number(props.cashflow[propss.column.parent.name])) * (115/100)
+              }
+    
+                  total += (actual - amount)
+                
+              })
+              
+              return  new Intl.NumberFormat('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+                useGrouping: true
+              }).format(total).replace(/,/g, ' ');
+            }, 
+
+            
+            
+            
+            renderCell(props:any) {
     
                 let  totoal_budget  = 0;
                 if(props.row[props.column.parent.name]){
@@ -757,12 +866,14 @@ for (const [month, data] of Object.entries(flow)) {
 
 
   return (
-    <>
+    <div style={{display:"flex", flexDirection:"column"}}>
     
-
+    <div style={{padding:5, paddingTop:10, paddingBottom:10}}>
+      <div>Save</div>
+    </div>
 
     <DataGrid
-      style={{ height: "100vh" }}
+      style={{ flex:1 }}
     //   rowKeyGetter={rowKeyGetter}
       columns={columns}
       rows={rowss}
@@ -783,6 +894,7 @@ for (const [month, data] of Object.entries(flow)) {
         }
       }
     />
-        </>
+
+        </div>
   );
 }
