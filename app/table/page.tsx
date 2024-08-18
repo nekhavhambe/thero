@@ -189,7 +189,7 @@ let lists = [
 
 function aggregateMonthlyTotals(data:any) {
     // Object to store the sum of amounts for each month
-    const monthlyTotals = {};
+    const monthlyTotals:any = {};
 
     data.forEach((entry: any )=> {
         const amount = entry.amount;
@@ -209,18 +209,18 @@ function aggregateMonthlyTotals(data:any) {
         if (!monthlyTotals[yearMonth]) {
             monthlyTotals[yearMonth] = 0;
         }
-        monthlyTotals[yearMonth] += amount;
+        monthlyTotals[yearMonth] += amount; 
     });
 
     // Convert the result to the desired format
-    const result = {};
+    const result:any = {};
     Object.keys(monthlyTotals).forEach(yearMonth => {
         const [year, month] = yearMonth.split('-');
         // Create a date object for the last day of the month
-        const endDate = new Date(year, month, 0); // 0 is the last day of the previous month
+        const endDate = new Date(Number(year), Number(month), 0); // 0 is the last day of the previous month
 
         // Format the date to "Month Ended Month YYYY"
-        const formattedDate = `Month Ended ${formatDateToCustomFormat(new Date(year, month - 1))}`;
+        const formattedDate = `Month Ended ${formatDateToCustomFormat(new Date(Number(year), Number(month) - 1))}`;
         result[formattedDate] = monthlyTotals[yearMonth];
     });
 
@@ -239,7 +239,7 @@ lists = lists.map( el => {
 console.log("updated el", lists)
 
 function formatDateToCustomFormat(date:any) {
-  const options = { month: "long", year: "numeric" };
+  const options:any = { month: "long", year: "numeric" };
   return new Intl.DateTimeFormat("en-GB", options).format(date);
 }
 
@@ -278,7 +278,7 @@ function getFinancialYearPeriods() {
     currentYearPeriods.push({
       name: monthEnded, // Only the formatted month and year,
       children: [
-        { key: "2" + i, name: "Claimed", width: "190px", renderCell(props) {
+        { key: "2" + i, name: "Claimed", width: "190px", renderCell(props:any) {
 
             if(props.row.cashflow[props.column.parent.name]){
                     let amount = (Number(props.row.cashflow[props.column.parent.name])) //* (100/115)
@@ -291,7 +291,7 @@ function getFinancialYearPeriods() {
             
             return "0.00"
           }  },
-        { key: "3" + i, name: "Vat" ,width: "150px" ,renderCell(props) {
+        { key: "3" + i, name: "Vat" ,width: "150px" ,renderCell(props:any) {
 
             if(props.row.cashflow[props.column.parent.name]){
                     let amount = (Number(props.row.cashflow[props.column.parent.name])) * (15/100)
@@ -304,7 +304,7 @@ function getFinancialYearPeriods() {
             
             return "0.00"
           }},
-        { key: "4"+i, name: "Total Claimed" , renderCell(props) {
+        { key: "4"+i, name: "Total Claimed" , renderCell(props:any) {
 
             if(props.row.cashflow[props.column.parent.name]){
                     let amount = (Number(props.row.cashflow[props.column.parent.name])) * (115/100)
@@ -317,7 +317,7 @@ function getFinancialYearPeriods() {
             
             return "0.00"
           }},
-        { key: monthEnded, name: "Budgted", width:"150px", renderEditCell: textEditor ,renderCell(props) {
+        { key: monthEnded, name: "Budgted", width:"150px", renderEditCell: textEditor ,renderCell(props:any) {
             let amount = 0;
             if(props.row[props.column.parent.name]){
                amount = (Number(props.row[props.column.parent.name]))
@@ -332,7 +332,7 @@ function getFinancialYearPeriods() {
               }).format(amount).replace(/,/g, ' ');
 
           } },
-        { key: "6"+i, name: "Vat",width:"150px" ,renderCell(props) {
+        { key: "6"+i, name: "Vat",width:"150px" ,renderCell(props:any) {
             let amount = 0;
             if(props.row[props.column.parent.name]){
                     amount = props.row[props.column.parent.name] * (15/100)
@@ -349,7 +349,7 @@ function getFinancialYearPeriods() {
            }},
 
 
-        { key: "7"+i, name: "Total Budgted", width:"150px",renderCell(props) {
+        { key: "7"+i, name: "Total Budgted", width:"150px",renderCell(props:any) {
 
 
             
@@ -369,7 +369,7 @@ function getFinancialYearPeriods() {
               }).format(amount).replace(/,/g, ' ');
            
            } },
-        { key: "8"+i, name: "Over/Under Billed", renderCell(props) {
+        { key: "8"+i, name: "Over/Under Billed", renderCell(props:any) {
 
             let  totoal_budget  = 0;
             if(props.row[props.column.parent.name]){
@@ -414,7 +414,7 @@ const columns = [
         name: "Task Order",
         frozen: true,
         width: "200px",
-        renderCell(props) {
+        renderCell(props:any) {
           return props.row['name'];
         }
       },
@@ -422,7 +422,7 @@ const columns = [
         key: "3",
         name: "Value",
         width: "140px",
-        renderCell(props) {
+        renderCell(props:any) {
           return props.row['value'];
         },
 
@@ -431,7 +431,7 @@ const columns = [
         key: "4",
         name: "Claimed Excl",
         width: "140px",
-        renderCell(props) {
+        renderCell(props:any) {
             let num = (Number(props.row['billed'].replace(/\s+/g, ''))*(100/100))
             return new Intl.NumberFormat('en-US', {
                 minimumFractionDigits: 2,
@@ -444,8 +444,8 @@ const columns = [
         key: "5",
         name: "Vat",
         width: "150px",
-        renderCell(props) {
-            let num = (Number(props.row['billed'].replace(/\s+/g, ''))*(15/100)).toFixed(2);
+        renderCell(props:any) {
+            let num:any = (Number(props.row['billed'].replace(/\s+/g, ''))*(15/100)).toFixed(2);
             return new Intl.NumberFormat('en-US', {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,
@@ -457,8 +457,8 @@ const columns = [
         key: "6",
         name: "Total Claimed",
         width: "150px",
-        renderCell(props) {
-            let num = (Number(props.row['billed'].replace(/\s+/g, ''))*(115/100)).toFixed(2);
+        renderCell(props:any) {
+            let num:any = (Number(props.row['billed'].replace(/\s+/g, ''))*(115/100)).toFixed(2);
             return new Intl.NumberFormat('en-US', {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,
@@ -471,7 +471,7 @@ const columns = [
         width: "150px",
         name: "Budget Remaining",
         renderEditCell: textEditor
-        // renderCell(props) {
+        // renderCell(props:any) {
         //     return props.row['forecast'];
         //   },
       },
