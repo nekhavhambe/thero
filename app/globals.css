@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   font-family: Arial, Helvetica, sans-serif;
   padding: 0px;
   margin: 0px;
@@ -17,26 +18,23 @@ html, body {
   filter: blur(150px);
 } */
 
-
 input {
   appearance: none;
   box-sizing: border-box;
-  width: 100px !important;
-  height: 100px !important;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 6px;
-  padding-right: 6px;
-  border: 2px solid red !important;
+  inline-size: 100%;
+  block-size: 100%;
+  padding-block: 0;
+  padding-inline: 6px;
+  border: 2px solid #ccc;
   vertical-align: top;
-  color: green;
-  background-color: red !important;
+  color: var(--rdg-color);
+  background-color: var(--rdg-background-color);
   font-family: inherit;
-  font-size: 60px;
+  font-size: var(--rdg-font-size);
 }
 
 input:focus {
-  border-color: red;
+  border-color: var(--rdg-selection-color);
   outline: none;
 }
 

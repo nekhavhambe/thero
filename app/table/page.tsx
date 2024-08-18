@@ -4,6 +4,7 @@
 import DataGrid, {
   type ColumnOrColumnGroup,
   renderValue,
+  textEditor,
   // Inputs
 } from "react-data-grid";
 import React, {useState} from "react";
