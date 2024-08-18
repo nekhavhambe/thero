@@ -1,5 +1,6 @@
 "use client";
-import "./styles.css";
+
+
 import DataGrid, {
   type ColumnOrColumnGroup,
   renderValue,
@@ -493,6 +494,10 @@ export default function ColumnGrouping({  }) {
     const [rowss, setRowss] = useState(rows);
     const [selectedRows, setSelectedRows] = useState((): ReadonlySet<number> => new Set());
   return (
+    <>
+    
+
+
     <DataGrid
       style={{ height: "100vh" }}
     //   rowKeyGetter={rowKeyGetter}
@@ -512,5 +517,6 @@ export default function ColumnGrouping({  }) {
         }
       }
     />
+        </>
   );
 }
