@@ -668,7 +668,7 @@ export default function ColumnGrouping({}) {
 
   const columns = [
     {
-      name: "Project Billing Projections",
+      name: "Project Spending Projections",
 
       children: [
         {
