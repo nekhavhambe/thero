@@ -373,7 +373,7 @@ export default function ColumnGrouping({}) {
 
                 const doc = document.getElementById("pop")
                 doc.style.display = "flex"
-                //alert(JSON.stringify(row))
+                alert(JSON.stringify(row))
            
             },
             renderCell(props: any) {
@@ -990,7 +990,7 @@ export default function ColumnGrouping({}) {
         }
 
         console.log(aggregateMonthlyTotals_(JSON.parse(new_el.cashflow)), '-------||||||||--|||||----run')
-        new_el['jump']= aggregateMonthlyTotals_(JSON.parse(new_el.cashflow)),
+        new_el['entires']= aggregateMonthlyTotals_(JSON.parse(new_el.cashflow)),
         new_el.cashflow = aggregateMonthlyTotals(JSON.parse(new_el.cashflow));
         return { ...new_el, ...transformedObject };
       });
