@@ -372,12 +372,14 @@ export default function ColumnGrouping({}) {
             },
             renderEditCell(row){
                 let clm = row['column']['parent']['name'];
-                let clm_;
-                if(clm){
-                   clm_ = row['row'][clm]
+
+                
+                if(row['column']['parent']['name']){
+                  //  clm_ = row['row'][clm]
+                   console.log(row['row'], 'runnnnnnnnnn', row['column']['parent']['name'])
                 };
 
-                console.log(row,clm_, '-------........', row['column']['parent']['name'])
+                console.log(row, '-------........', row['column']['parent']['name'])
                 // let rowx = row.row['entires'][clm]
 
 
