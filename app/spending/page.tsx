@@ -371,8 +371,12 @@ export default function ColumnGrouping({}) {
                 .replace(/,/g, " ");
             },
             renderEditCell(row){
+                let clm = row['parent']['name'];
+                let rowx = row.row['entires'][clm]
+
+
                 console.log(row, 'RUNNING-----------APPSX')
-                setInvoices(row['entires'])
+                setInvoices(rowx)
                 const doc = document.getElementById("pop")
                 doc.style.display = "flex"
                 //alert(JSON.stringify(row))
