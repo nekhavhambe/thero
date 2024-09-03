@@ -371,14 +371,20 @@ export default function ColumnGrouping({}) {
                 .replace(/,/g, " ");
             },
             renderEditCell(row){
-                let clm = row['parent']['name'];
-                let rowx = row.row['entires'][clm]
+                // let clm = row['parent']['name'];
+                let clm;
+                if(row['parent']){
+                  clm = row['parent']['name']
+                }
+
+                console.log(row['parent'])
+                // let rowx = row.row['entires'][clm]
 
 
-                console.log(row, 'RUNNING-----------APPSX')
-                setInvoices(rowx ? rowx : [])
-                const doc = document.getElementById("pop")
-                doc.style.display = "flex"
+                // console.log(row, 'RUNNING-----------APPSX')
+                // setInvoices(rowx ? rowx : [])
+                // const doc = document.getElementById("pop")
+                // doc.style.display = "flex"
                 //alert(JSON.stringify(row))
            
             },
