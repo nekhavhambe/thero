@@ -374,7 +374,7 @@ export default function ColumnGrouping({}) {
                 // let clm = row['parent']['name'];
                 let clm;
                 if(row['parent']){
-                  clm = row['parent']['name']
+                  // clm = row['parent']['name']
                 }
 
                 console.log(row['parent'])
