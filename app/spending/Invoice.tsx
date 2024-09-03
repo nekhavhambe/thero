@@ -2,7 +2,7 @@ import React from 'react';
 
 // Example InvoiceList component
 const InvoiceList = ({ invoices }) => {
-    console.log(invoices, '------------........>>>>>>>>>>>>>>>.')
+    console.log(invoices, '<<<<<<<<<<<<------------>>>>>>>>>>>>>>>')
   return (
     <div className="invoice-list">
       <h2 style={{textAlign:"left"}}>Invoice List</h2>
