@@ -376,10 +376,10 @@ export default function ColumnGrouping({}) {
                 
                 if(row['column']['parent']['name']){
                   //  clm_ = row['row'][clm]
-                   console.log(row['row'], 'runnnnnnnnnn', row['column']['parent']['name'])
+                   console.log(row['row']['entries'][row['column']['parent']['name']], 'runnnnnnnnnn', row['column']['parent']['name'])
                 };
 
-                console.log(row, '-------........', row['column']['parent']['name'])
+                console.log(row, '-------........martin-------.........', row['column']['parent']['name'])
                 // let rowx = row.row['entires'][clm]
 
 
