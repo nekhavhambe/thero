@@ -1,4 +1,5 @@
 "use client";
+import "./styles.css"
 
 import DataGrid, {
   type ColumnOrColumnGroup,
@@ -8,6 +9,7 @@ import DataGrid, {
 } from "react-data-grid";
 import React, { useState, useEffect } from "react";
 import Inputs from "./Input";
+import InvoiceList from "./Invoice";
 
 // import { renderCoordinates } from "./renderers";
 // import type { Props } from './types';
@@ -323,21 +325,30 @@ export default function ColumnGrouping({}) {
                 .format(total)
                 .replace(/,/g, " ");
             },
+            renderEditCell({ row, onRowChange, onClose }){
+
+                const doc = document.getElementById("pop")
+                doc.style.display = "flex"
+                // alert(JSON.stringify(row))
+           
+            },
             renderCell(props: any) {
               if (props.row.cashflow[props.column.parent.name]) {
                 let amount = Number(
                   props.row.cashflow[props.column.parent.name]
                 ); //* (100/115)
-                return new Intl.NumberFormat("en-US", {
+                return <p  style={{color:"blue"}}> {new Intl.NumberFormat("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                   useGrouping: true,
                 })
                   .format(amount)
-                  .replace(/,/g, " ");
-              }
+                  .replace(/,/g, " ")}
+                  </p>
+              } 
 
-              return "0.00";
+              return <p style={{color:"blue"}}>0.00
+              </p>;
             },
           },
           {
@@ -1048,6 +1059,17 @@ export default function ColumnGrouping({}) {
           Save
         </div>
       </div>
+
+      <div id="pop" style={{display:"none",width:'100vw', height:'100vh', backgroundColor:"rgba(0,0,0,0.5)", backdropFilter:"blur(5px)", position:"absolute", top:0, left:0, zIndex:99999999, justifyContent:"center", alignItems:"center" }}>
+                <p onClick={() => {
+                                  const doc = document.getElementById("pop")
+                                  doc.style.display = "none"
+                }}>Me</p>
+
+                <div style={{width:900, height:500, backgroundColor:"white", borderRadius:5}}>    <InvoiceList invoices={[{ id: '001', date: '2024-08-25', amount: 123.45, status: 'Paid' } ,
+  { id: '002', date: '2024-08-26', amount: 678.90, status: 'Pending' }]}  />
+               </div>
+              </div>
 
       <DataGrid
         style={{ flex: 1 }}
