@@ -994,7 +994,7 @@ export default function ColumnGrouping({}) {
             }else {
               xml += `<GLBUDGETITEM>
               <PERIODNAME>${key}</PERIODNAME>
-              <ACCT_NO>100000</ACCT_NO>
+              <ACCT_NO>401001</ACCT_NO>
               <AMOUNT>${Number(props[key])}</AMOUNT>
               <GLDIMTASKORDER_BUDGET>${props.id}</GLDIMTASKORDER_BUDGET>
           </GLBUDGETITEM>`
