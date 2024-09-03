@@ -305,6 +305,7 @@ function rowKeyGetter(row: any) {
 
 export default function ColumnGrouping({}) {
   const [rowss, setRowss] = useState(rows);
+  const [invoices, setInvoices] = useState([])
 
   const [selectedRows, setSelectedRows] = useState(
     (): ReadonlySet<number> => new Set()
@@ -371,9 +372,10 @@ export default function ColumnGrouping({}) {
             },
             renderEditCell({ row, onRowChange, onClose }){
 
+              setInvoices(row['entires'])
                 const doc = document.getElementById("pop")
                 doc.style.display = "flex"
-                alert(JSON.stringify(row))
+                //alert(JSON.stringify(row))
            
             },
             renderCell(props: any) {
@@ -1104,7 +1106,7 @@ export default function ColumnGrouping({}) {
                                   doc.style.display = "none"
                 }}>Me</p>
 
-                <div style={{width:900, height:500, backgroundColor:"white", borderRadius:5}}>    <InvoiceList invoices={[{ id: '001', date: '2024-08-25', amount: 123.45, status: 'Paid' } ,
+                <div style={{width:900, height:500, backgroundColor:"white", borderRadius:5}}>    <InvoiceList invoices={[...invoices,{ id: '001', date: '2024-08-25', amount: 123.45, status: 'Paid' } ,
   { id: '002', date: '2024-08-26', amount: 678.90, status: 'Pending' }]}  />
                </div>
               </div>
