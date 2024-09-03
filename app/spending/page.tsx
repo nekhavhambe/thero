@@ -235,45 +235,47 @@ function aggregateMonthlyTotals(data: any) {
 
 
 function aggregateMonthlyTotals_(data: any) {
-  // Object to store the sum of amounts for each month
-  const monthlyTotals: any = {};
+   // Object to store the entries for each month
+   const monthlyEntries: any = {};
 
-  data.forEach((entry: any) => {
-    const amount = entry.amount;
-    const dateStr = entry.date;
-
-    // Parse the date string into a Date object
-    const dateObj = new Date(dateStr);
-
-    // Extract year and month (0-based month)
-    const year = dateObj.getFullYear();
-    const month = dateObj.getMonth(); // 0 for January, 11 for December
-
-    // Format the key as "YYYY-MM" to group by month and year
-    const yearMonth = `${year}-${String(month + 1).padStart(2, "0")}`;
-
-    // Add the amount to the corresponding month
-    if (!monthlyTotals[yearMonth]) {
-      monthlyTotals[yearMonth] = 0;
-    }
-    monthlyTotals[yearMonth] += amount;
-  });
-
-  // Convert the result to the desired format
-  const result: any = {};
-  Object.keys(monthlyTotals).forEach((yearMonth) => {
-    const [year, month] = yearMonth.split("-");
-    // Create a date object for the last day of the month
-    const endDate = new Date(Number(year), Number(month), 0); // 0 is the last day of the previous month
-
-    // Format the date to "Month Ended Month YYYY"
-    const formattedDate = `Month Ended ${formatDateToCustomFormat(
-      new Date(Number(year), Number(month) - 1)
-    )}`;
-    result[formattedDate] = monthlyTotals[yearMonth];
-  });
-
-  return result;
+   data.forEach((entry: any) => {
+     const amount = entry.amount;
+     const dateStr = entry.date;
+ 
+     // Parse the date string into a Date object
+     const dateObj = new Date(dateStr);
+ 
+     // Extract year and month (0-based month)
+     const year = dateObj.getFullYear();
+     const month = dateObj.getMonth(); // 0 for January, 11 for December
+ 
+     // Format the key as "YYYY-MM" to group by month and year
+     const yearMonth = `${year}-${String(month + 1).padStart(2, "0")}`;
+ 
+     // Create the entry object if it does not exist
+     if (!monthlyEntries[yearMonth]) {
+       monthlyEntries[yearMonth] = [];
+     }
+     
+     // Add the entry to the corresponding month
+     monthlyEntries[yearMonth].push(entry);
+   });
+ 
+   // Convert the result to the desired format
+   const result: any = {};
+   Object.keys(monthlyEntries).forEach((yearMonth) => {
+     const [year, month] = yearMonth.split("-");
+     // Create a date object for the last day of the month
+     const endDate = new Date(Number(year), Number(month), 0); // 0 is the last day of the previous month
+ 
+     // Format the date to "Month Ended Month YYYY"
+     const formattedDate = `Month Ended ${formatDateToCustomFormat(
+       new Date(Number(year), Number(month) - 1)
+     )}`;
+     result[formattedDate] = monthlyEntries[yearMonth];
+   });
+ 
+   return result;
 }
 
 lists = lists.map((el) => {
@@ -976,6 +978,7 @@ export default function ColumnGrouping({}) {
     const handleMessage = (event: any) => {
       let data: any = event.data.content;
       window.appToken = event.data.token;
+ 
 
       data = data.map((el: any) => {
         let new_el = el;
@@ -986,7 +989,8 @@ export default function ColumnGrouping({}) {
           transformedObject[month] = data.amount;
         }
 
-        console.log(aggregateMonthlyTotals_(JSON.parse(new_el.cashflow)), '---------------------run')
+        console.log(aggregateMonthlyTotals_(JSON.parse(new_el.cashflow)), '-------||||||||--|||||----run')
+        new_el.jump = "martin"
         new_el.cashflow = aggregateMonthlyTotals(JSON.parse(new_el.cashflow));
         return { ...new_el, ...transformedObject };
       });
