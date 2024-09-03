@@ -1026,7 +1026,7 @@ export default function ColumnGrouping({}) {
       <div style={{ padding: 5, paddingTop: 10, paddingBottom: 10 }}>
         <div
           style={{
-            backgroundColor: "#0070f3",
+            backgroundColor: "#000",
             color: "white",
             padding: "10px 20px",
             border: "none",
@@ -1034,7 +1034,7 @@ export default function ColumnGrouping({}) {
             cursor: "pointer",
             fontSize: "14px",
             transition: "background-color 0.3s",
-            maxWidth:150,
+            maxWidth:350,
             textAlign:"center"
           }}
           onMouseOver={(e) => (e.target.style.backgroundColor = "#005bb5")}
