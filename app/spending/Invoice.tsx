@@ -2,6 +2,7 @@ import React from 'react';
 
 // Example InvoiceList component
 const InvoiceList = ({ invoices }) => {
+    console.log(invoices, '------------........>>>>>>>>>>>>>>>.')
   return (
     <div className="invoice-list">
       <h2 style={{textAlign:"left"}}>Invoice List</h2>
@@ -19,15 +20,19 @@ const InvoiceList = ({ invoices }) => {
             </tr>
           </thead>
           <tbody>
-            {invoices.map(invoice => (
-              <tr style={{}} key={invoice.id}>
-                <td style={{width:80}}>{invoice.id}</td>
-                <td  style={{width:150}}>{new Date(invoice.date).toLocaleDateString()}</td>
-                <th  style={{width:150, textAlign:"left"}}>Supplier</th>
-                <td  style={{width:150}}>${invoice.amount.toFixed(2)}</td>
-                <td  style={{width:100}}>{invoice.status}</td>
-              </tr>
-            ))}
+            {invoices.map(invoice => {
+                if(invoice){
+                    return          ( <tr style={{}} key={invoice.id}>
+                        <td style={{width:80}}>{invoice.id}</td>
+                        <td  style={{width:150}}>{invoice.date}</td>
+                        <th  style={{width:150, textAlign:"left"}}>Supplier</th>
+                        <td  style={{width:150}}>${invoice.amount}</td>
+                        <td  style={{width:100}}>{invoice.status}</td>
+                      </tr>)
+                }
+
+    
+})}
           </tbody>
         </table>
       )}
