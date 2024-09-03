@@ -371,7 +371,7 @@ export default function ColumnGrouping({}) {
                 .replace(/,/g, " ");
             },
             renderEditCell({ row, onRowChange, onClose }){
-                console.log(row, 'RUNNING-----------APPS')
+                console.log(row, 'RUNNING-----------APPSX')
                 setInvoices(row['entires'])
                 const doc = document.getElementById("pop")
                 doc.style.display = "flex"
