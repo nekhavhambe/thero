@@ -244,7 +244,7 @@ lists = lists.map((el) => {
   return { ...new_el, ...transformedObject };
 });
 
-console.log("updated mmmel", lists);
+console.log("updated el", lists);
 
 function formatDateToCustomFormat(date: any) {
   const options: any = { month: "long", year: "numeric" };
@@ -667,41 +667,6 @@ export default function ColumnGrouping({}) {
   let res = getFinancialYearPeriods();
 
   const columns = [
-    
-    {
-      key: 'expanded',
-      name: '',
-      minWidth: 30,
-      width: 30,
-      colSpan(args) {
-        return args.type === 'ROW' && args.row.type === 'DETAIL' ? 3 : undefined;
-      },
-      cellClass(row) {
-        return row.type === 'DETAIL'
-          ? css`
-              padding: 24px;
-            `
-          : undefined;
-      },
-      renderCell({ row, tabIndex, onRowChange }) {
-        if (row.type === 'DETAIL') {
-          return (<></>)
-          // return <ProductGrid parentId={row.parentId} direction={direction} />;
-        }
-
-        return (
-          <></>
-          // <CellExpanderFormatter
-          //   expanded={row.expanded}
-          //   tabIndex={tabIndex}
-          //   onCellExpand={() => {
-          //     onRowChange({ ...row, expanded: !row.expanded });
-          //   }}
-          // />
-        );
-      }
-    },
-    ,
     {
       name: "Project Spending Projections",
 
