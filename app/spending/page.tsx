@@ -371,13 +371,13 @@ export default function ColumnGrouping({}) {
                 .replace(/,/g, " ");
             },
             renderEditCell(row){
-                // let clm = row['parent']['name'];
-                let clm;
-                if(row['parent']){
-                  // clm = row['parent']['name']
-                }
+                let clm = row['column']['parent']['name'];
+                let clm_;
+                if(clm){
+                   clm_ = row['row'][clm]
+                };
 
-                console.log(row, '-------........')
+                console.log(row,clm_, '-------........')
                 // let rowx = row.row['entires'][clm]
 
 
