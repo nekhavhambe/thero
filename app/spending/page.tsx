@@ -377,7 +377,7 @@ export default function ColumnGrouping({}) {
                    clm_ = row['row'][clm]
                 };
 
-                console.log(row,clm_, '-------........')
+                console.log(row,clm_, '-------........', row['column']['parent']['name'])
                 // let rowx = row.row['entires'][clm]
 
 
