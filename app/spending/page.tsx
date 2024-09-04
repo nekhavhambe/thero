@@ -376,7 +376,7 @@ export default function ColumnGrouping({}) {
                 
                 if(row['column']['parent']['name']){
                   //  clm_ = row['row'][clm]
-                   console.log(row['row']['entries'], 'runnnnnnnnnn', row['column']['parent']['name'])
+                   console.log(row['row'], 'runnnnnnnnnn', row['column']['parent']['name'])
                 };
 
                 // console.log(row, '-------........martin-------.........', row['column']['parent']['name'])
@@ -1003,7 +1003,7 @@ export default function ColumnGrouping({}) {
           transformedObject[month] = data.amount;
         }
 
-        console.log(aggregateMonthlyTotals_(JSON.parse(new_el.cashflow)), '-------||||||||--|||||----run')
+        console.log(aggregateMonthlyTotals_(JSON.parse(new_el.cashflow)),'-------||||||||--|||||----run')
         new_el['entires']= aggregateMonthlyTotals_(JSON.parse(new_el.cashflow)),
         new_el.cashflow = aggregateMonthlyTotals(JSON.parse(new_el.cashflow));
         return { ...new_el, ...transformedObject };
