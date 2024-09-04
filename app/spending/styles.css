@@ -7,45 +7,26 @@
   font-family: Arial, sans-serif;
 }
 
-h2 {
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 1.5em;
-  text-align: center;
-}
-
 .invoice-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
 }
 
-.invoice-table thead {
-  background-color: #f4f4f4;
-}
+
 
 .invoice-table th, .invoice-table td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+  color: #555;
+  border: 1px solid #ddd; /* Light grey border for cells */
+  padding: 8px; /* Space inside each cell */
 }
 
 .invoice-table th {
   background-color: #f9f9f9;
   color: #333;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 
 
-.invoice-table td {
-  color: #555;
-}
 
-.invoice-table td:first-child {
-  font-weight: bold;
-}
-
-.invoice-table td:last-child {
-  text-transform: capitalize;
-}
