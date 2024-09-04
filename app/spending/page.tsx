@@ -307,8 +307,8 @@ export default function ColumnGrouping({}) {
   const [rowss, setRowss] = useState(rows);
 
   const [invoices, setInvoices] = useState([])
-  const [saveEdits, setSaveEdits] = useState(false)
-  window.setSaveEdits = setSaveEdits
+
+  
 
   const [selectedRows, setSelectedRows] = useState(
     (): ReadonlySet<number> => new Set()
@@ -1091,7 +1091,7 @@ export default function ColumnGrouping({}) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <div style={{ padding: 5, paddingTop: 10, paddingBottom: 10, display:"flex" }}>
+      <div id='save' style={{ padding: 5, paddingTop: 10, paddingBottom: 10, display:"none" }}>
         <div
           style={{
             backgroundColor: "transparent",

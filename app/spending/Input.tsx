@@ -1,4 +1,7 @@
 // import { css } from '@linaria/core';
+'use client'
+
+import { document } from "postcss";
 
 // import type { RenderEditCellProps } from '../types';
 
@@ -49,7 +52,7 @@ export default function textEditor({
       ref={autoFocusAndSelect}
       value={row[column.key]}
       onChange={(event) => {
-        window.setSaveEdits(true)
+        document.querySelector('#save').style.display = 'flex'
         onRowChange({ ...row, [column.key]: event.target.value })}}
       onBlur={(e) => { 
         onClose(true, false)}}
