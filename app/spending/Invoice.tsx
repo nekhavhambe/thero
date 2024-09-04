@@ -5,14 +5,21 @@ const InvoiceList = ({ invoices }) => {
     
   return (
     <div className="invoice-list">
-      <h2 style={{textAlign:"left"}}>Invoice List</h2>
+      <div style={{display:"flex", alignItems:"center"}}>
+      <h2 style={{textAlign:"left", flex:1}}>Purchases List</h2>
+      <p style={{textDecoration:"underline"}} onClick={() => {
+                                  const doc = document.getElementById("pop")
+                                  doc.style.display = "none"
+                }}>Close</p>
+      </div>
+      
       {invoices.length === 0 ? (
         <p>No invoices available.</p>
       ) : (
         <table>
           <thead>
             <tr style={{textAlign:"left"}}>
-              <th style={{width:80}}>ID</th>
+              <th style={{width:250}}>Created From</th>
               <th  style={{width:150}}>Date</th>
               <th  style={{width:150}}>Supplier</th>
               <th  style={{width:150}}>Amount</th>
@@ -23,10 +30,10 @@ const InvoiceList = ({ invoices }) => {
             {invoices[0].map(invoice => {
               console.log(invoice, '<<<<<<<<<<<<------------>>>>>>>>>>>>>>>')
                 if(invoice){
-                    return  ( <tr style={{}} key={invoice.id}>
+                    return  ( <tr style={{borderTop:'1px solid #ccc'}} key={invoice.id}>
                         <td style={{width:250}}>{invoice.created_from}</td>
                         <td  style={{width:150}}>{invoice.date}</td>
-                        <th  style={{width:150, textAlign:"left"}}>${invoice.vendor}</th>
+                        <td  style={{width:150, textAlign:"left"}}>{invoice.vendor}</td>
                         <td  style={{width:150}}>${invoice.amount}</td>
                       </tr>)
                 }
