@@ -1098,7 +1098,32 @@ export default function ColumnGrouping({}) {
             cursor: "pointer",
             fontSize: "14px",
             transition: "background-color 0.3s",
-            maxWidth:350,
+            maxWidth:250,
+            textAlign:"center",
+
+          }}
+          // onMouseOver={(e) => (e.target.style.backgroundColor = "#005bb5")}
+          // onMouseOut={(e) => (e.target.style.backgroundColor = "#0070f3")}
+          // onMouseDown={(e) => (e.target.style.backgroundColor = "#004494")}
+          // onMouseUp={(e) => (e.target.style.backgroundColor = "#005bb5")}
+          onClick={()=> {
+            window.parent.postMessage({xmlx: xmlx, new:true},  "*");
+          }}
+        >
+          Save
+        </div>
+        <div style={{width:30}}></div>
+        <div
+          style={{
+            backgroundColor: "transparent",
+            color: "green",
+            padding: "10px 20px",
+            border: "2px solid green",
+            borderRadius: "5px",
+            cursor: "pointer",
+            fontSize: "14px",
+            transition: "background-color 0.3s",
+            maxWidth:250,
             textAlign:"center",
 
           }}
@@ -1110,7 +1135,7 @@ export default function ColumnGrouping({}) {
             window.parent.postMessage({xmlx: xmlx, new:true},  "*");
           }}
         >
-          Save
+          Discard
         </div>
       </div>
 
