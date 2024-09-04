@@ -1102,7 +1102,8 @@ export default function ColumnGrouping({}) {
             cursor: "pointer",
             fontSize: "14px",
             transition: "background-color 0.3s",
-            minWidth:350,
+            minWidth:150,
+            maxWidth:150,
             textAlign:"center",
           }}
           onClick={()=> {
