@@ -13,7 +13,7 @@ const InvoiceList = ({ invoices }) => {
                 }}>Close Modal</p>
       </div>
       
-      {invoices.length === 0 ? (
+      {!invoices[0] || invoices.length === 0 ? (
         <p>No invoices available.</p>
       ) : (
         <table>

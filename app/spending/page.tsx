@@ -371,13 +371,14 @@ export default function ColumnGrouping({}) {
                 .replace(/,/g, " ");
             },
             renderEditCell(row){
-                let clm = row['column']['parent']['name'];
 
                 
                 if(row['column']['parent']['name']){
-                  //  clm_ = row['row'][clm]
-                   console.log(row['row'], row['row']['entires'],'----',row['row']['entires'][row['column']['parent']['name']],'runnnnnnnnnn', row['column']['parent']['name'])
-                   setInvoices(row['row']['entires'][row['column']['parent']['name']])
+
+                  if(row['row']['entires']){
+                    setInvoices(row['row']['entires'][row['column']['parent']['name']])
+                    console.log(row['row'], row['row']['entires'],'----',row['row']['entires'][row['column']['parent']['name']],'runnnnnnnnnn', row['column']['parent']['name'])
+                  }  
                 };
 
                 // console.log(row, '-------........martin-------.........', row['column']['parent']['name'])
@@ -1087,7 +1088,7 @@ export default function ColumnGrouping({}) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <div style={{ padding: 5, paddingTop: 10, paddingBottom: 10 }}>
+      <div style={{ padding: 5, paddingTop: 10, paddingBottom: 10, display:"flex" }}>
         <div
           style={{
             backgroundColor: "transparent",
@@ -1098,7 +1099,7 @@ export default function ColumnGrouping({}) {
             cursor: "pointer",
             fontSize: "14px",
             transition: "background-color 0.3s",
-            maxWidth:250,
+            maxWidth:200,
             textAlign:"center",
 
           }}
@@ -1123,16 +1124,16 @@ export default function ColumnGrouping({}) {
             cursor: "pointer",
             fontSize: "14px",
             transition: "background-color 0.3s",
-            maxWidth:250,
+            maxWidth:200,
             textAlign:"center",
 
           }}
-          onMouseOver={(e) => (e.target.style.backgroundColor = "#005bb5")}
-          onMouseOut={(e) => (e.target.style.backgroundColor = "#0070f3")}
-          onMouseDown={(e) => (e.target.style.backgroundColor = "#004494")}
-          onMouseUp={(e) => (e.target.style.backgroundColor = "#005bb5")}
+          // onMouseOver={(e) => (e.target.style.backgroundColor = "#005bb5")}
+          // onMouseOut={(e) => (e.target.style.backgroundColor = "#0070f3")}
+          // onMouseDown={(e) => (e.target.style.backgroundColor = "#004494")}
+          // onMouseUp={(e) => (e.target.style.backgroundColor = "#005bb5")}
           onClick={()=> {
-            window.parent.postMessage({xmlx: xmlx, new:true},  "*");
+            window.location.reload()
           }}
         >
           Discard
