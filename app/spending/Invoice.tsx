@@ -22,6 +22,7 @@ const InvoiceList = ({ invoices }) => {
               <th style={{width:250,fontSize:16}}>Created From</th>
               <th  style={{width:150,fontSize:16}}>Date</th>
               <th  style={{width:250,fontSize:16}}>Supplier</th>
+              <th style={{width:250,fontSize:16}}>Item</th>
               <th  style={{width:150,fontSize:16}}>Amount</th>
             </tr>
           </thead>
@@ -33,6 +34,7 @@ const InvoiceList = ({ invoices }) => {
                         <td style={{width:250, borderTop:'1px solid black',  borderBottom:'1px solid black'}}>{invoice.created_from}</td>
                         <td  style={{width:150, borderTop:'1px solid black',  borderBottom:'1px solid black'}}>{invoice.date}</td>
                         <td  style={{width:150, textAlign:"left", borderTop:'1px solid black',  borderBottom:'1px solid black' }}>{invoice.vendor}</td>
+                        <td  style={{width:150, textAlign:"left", borderTop:'1px solid black',  borderBottom:'1px solid black' }}>{invoice.item}</td>
                         <td  style={{width:150, borderTop:'1px solid black',  borderBottom:'1px solid black' }}>{invoice.amount}</td>
                       </tr>)
                 }
