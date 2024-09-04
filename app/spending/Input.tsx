@@ -1,7 +1,7 @@
 // import { css } from '@linaria/core';
 'use client'
 
-import { document } from "postcss";
+// import { document } from "postcss";
 
 // import type { RenderEditCellProps } from '../types';
 
