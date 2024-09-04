@@ -2,7 +2,7 @@ import React from 'react';
 
 // Example InvoiceList component
 const InvoiceList = ({ invoices }) => {
-    console.log(invoices, '<<<<<<<<<<<<------------>>>>>>>>>>>>>>>')
+    
   return (
     <div className="invoice-list">
       <h2 style={{textAlign:"left"}}>Invoice List</h2>
@@ -21,6 +21,7 @@ const InvoiceList = ({ invoices }) => {
           </thead>
           <tbody>
             {invoices.map(invoice => {
+              console.log(invoice, '<<<<<<<<<<<<------------>>>>>>>>>>>>>>>')
                 if(invoice){
                     return          ( <tr style={{}} key={invoice.id}>
                         <td style={{width:80}}>{invoice.id}</td>

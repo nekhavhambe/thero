@@ -1113,7 +1113,7 @@ export default function ColumnGrouping({}) {
         </div>
       </div>
 
-      <div id="pop" style={{display:"none",width:'100vw', height:'100%', backgroundColor:"rgba(0,0,0,0.5)", backdropFilter:"blur(5px)", position:"absolute", top:0, left:0, zIndex:99999999, justifyContent:"center", alignItems:"center" }}>
+      <div id="pop" style={{display:"none",width:'100vw', height:'190vh', backgroundColor:"rgba(0,0,0,0.5)", backdropFilter:"blur(5px)", position:"absolute", top:0, left:0, zIndex:99999999, justifyContent:"center", alignItems:"center" }}>
                 <p onClick={() => {
                                   const doc = document.getElementById("pop")
                                   doc.style.display = "none"
