@@ -1091,7 +1091,7 @@ export default function ColumnGrouping({}) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <div style={{ padding: 5, paddingTop: 10, paddingBottom: 10, display: saveEdits? "flex": "none" }}>
+      <div style={{ padding: 5, paddingTop: 10, paddingBottom: 10, display:"flex" }}>
         <div
           style={{
             backgroundColor: "transparent",
