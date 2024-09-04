@@ -20,7 +20,7 @@ const InvoiceList = ({ invoices }) => {
             </tr>
           </thead>
           <tbody>
-            {invoices.map(invoice => {
+            {invoices[0].map(invoice => {
               console.log(invoice, '<<<<<<<<<<<<------------>>>>>>>>>>>>>>>')
                 if(invoice){
                     return          ( <tr style={{}} key={invoice.id}>
