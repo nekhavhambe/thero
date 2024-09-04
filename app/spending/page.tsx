@@ -379,7 +379,7 @@ export default function ColumnGrouping({}) {
                    console.log(row['row']['entries'][row['column']['parent']['name']], 'runnnnnnnnnn', row['column']['parent']['name'])
                 };
 
-                console.log(row, '-------........martin-------.........', row['column']['parent']['name'])
+                // console.log(row, '-------........martin-------.........', row['column']['parent']['name'])
                 // let rowx = row.row['entires'][clm]
 
 
