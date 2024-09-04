@@ -31,9 +31,9 @@ const InvoiceList = ({ invoices }) => {
                 if(invoice){
                     return  ( <tr style={{ height:35,backgroundColor:"#ccc"}} key={invoice.id}>
                         <td style={{width:250, borderTop:'1px solid black',  borderBottom:'1px solid black'}}>{invoice.created_from}</td>
-                        <td  style={{width:150}}>{invoice.date}</td>
-                        <td  style={{width:150, textAlign:"left"}}>{invoice.vendor}</td>
-                        <td  style={{width:150}}>{invoice.amount}</td>
+                        <td  style={{width:150, borderTop:'1px solid black'}}>{invoice.date}</td>
+                        <td  style={{width:150, textAlign:"left", borderTop:'1px solid black', }}>{invoice.vendor}</td>
+                        <td  style={{width:150, borderTop:'1px solid black', }}>{invoice.amount}</td>
                       </tr>)
                 }
 
