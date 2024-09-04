@@ -24,11 +24,11 @@ const InvoiceList = ({ invoices }) => {
               console.log(invoice, '<<<<<<<<<<<<------------>>>>>>>>>>>>>>>')
                 if(invoice){
                     return          ( <tr style={{}} key={invoice.id}>
-                        <td style={{width:80}}>{invoice.id}</td>
+                        <td style={{width:80}}>{invoice.created_from}</td>
                         <td  style={{width:150}}>{invoice.date}</td>
                         <th  style={{width:150, textAlign:"left"}}>Supplier</th>
                         <td  style={{width:150}}>${invoice.amount}</td>
-                        <td  style={{width:100}}>{invoice.status}</td>
+                        <td  style={{width:100}}>{invoice.state}</td>
                       </tr>)
                 }
 
