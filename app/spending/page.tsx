@@ -1090,8 +1090,8 @@ export default function ColumnGrouping({}) {
   }, [rowss])
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <div id='save' style={{ padding: 5, paddingTop: 10, paddingBottom: 10, display:"hidden", gap:10 }}>
+    <div style={{ display: "flex", flexDirection: "column" , minHeight:40}}>
+      <div id='save' style={{ padding: 5, paddingTop: 10, paddingBottom: 10, display:"none", gap:10 }}>
         <div
           style={{
             backgroundColor: "transparent",
