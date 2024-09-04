@@ -1114,7 +1114,7 @@ export default function ColumnGrouping({}) {
       </div>
 
       <div id="pop" style={{display:"none",width:'100vw', height:'115vh', backgroundColor:"rgba(0,0,0,0.5)", backdropFilter:"blur(5px)", position:"absolute", top:0, left:0, zIndex:99999999, justifyContent:"center", alignItems:"flex-start" }}>
-                <div style={{width:900, height:500, backgroundColor:"white", borderRadius:5, marginTop:140}}>    <InvoiceList invoices={[invoices]}  />
+                <div style={{width:900, height:500, backgroundColor:"white", borderRadius:5, marginTop:140, overflow:"scroll"}}>    <InvoiceList invoices={[invoices]}  />
                </div>
               </div>
 
