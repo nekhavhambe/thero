@@ -1091,7 +1091,7 @@ export default function ColumnGrouping({}) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <div id='save' style={{ padding: 5, paddingTop: 10, paddingBottom: 10, display:"none", gap:10 }}>
+      <div id='save' style={{ padding: 5, paddingTop: 10, paddingBottom: 10, display:"hidden", gap:10 }}>
         <div
           style={{
             backgroundColor: "transparent",
@@ -1102,7 +1102,7 @@ export default function ColumnGrouping({}) {
             cursor: "pointer",
             fontSize: "14px",
             transition: "background-color 0.3s",
-            maxWidth:350,
+            minWidth:350,
             textAlign:"center",
           }}
           onClick={()=> {
