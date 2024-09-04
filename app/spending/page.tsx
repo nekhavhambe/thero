@@ -376,7 +376,7 @@ export default function ColumnGrouping({}) {
                 
                 if(row['column']['parent']['name']){
                   //  clm_ = row['row'][clm]
-                   console.log(row['row'], 'runnnnnnnnnn', row['column']['parent']['name'])
+                   console.log(row['row'], row['row']['entires'],'runnnnnnnnnn', row['column']['parent']['name'])
                 };
 
                 // console.log(row, '-------........martin-------.........', row['column']['parent']['name'])
