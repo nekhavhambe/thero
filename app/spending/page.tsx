@@ -308,7 +308,7 @@ export default function ColumnGrouping({}) {
 
   const [invoices, setInvoices] = useState([])
   const [saveEdits, setSaveEdits] = useState(false)
-  window.setSaveEdits = setSaveEdits
+  
 
   const [selectedRows, setSelectedRows] = useState(
     (): ReadonlySet<number> => new Set()
