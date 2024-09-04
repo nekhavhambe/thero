@@ -19,18 +19,18 @@ const InvoiceList = ({ invoices }) => {
         <table>
           <thead>
             <tr style={{textAlign:"left"}}>
-              <th style={{width:250}}>Created From</th>
-              <th  style={{width:150}}>Date</th>
-              <th  style={{width:150}}>Supplier</th>
-              <th  style={{width:150}}>Amount</th>
+              <th style={{width:250,fontSize:16}}>Created From</th>
+              <th  style={{width:150,fontSize:16}}>Date</th>
+              <th  style={{width:250,fontSize:16}}>Supplier</th>
+              <th  style={{width:150,fontSize:16}}>Amount</th>
             </tr>
           </thead>
           <tbody>
             {invoices[0].map(invoice => {
               console.log(invoice, '<<<<<<<<<<<<------------>>>>>>>>>>>>>>>')
                 if(invoice){
-                    return  ( <tr style={{borderTop:'4px solid black', paddingTop:8,backgroundColor:"red"}} key={invoice.id}>
-                        <td style={{width:250}}>{invoice.created_from}</td>
+                    return  ( <tr style={{ height:45,backgroundColor:"#ccc"}} key={invoice.id}>
+                        <td style={{width:250, borderTop:'4px solid black'}}>{invoice.created_from}</td>
                         <td  style={{width:150}}>{invoice.date}</td>
                         <td  style={{width:150, textAlign:"left"}}>{invoice.vendor}</td>
                         <td  style={{width:150}}>{invoice.amount}</td>
