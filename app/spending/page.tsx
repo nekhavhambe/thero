@@ -377,6 +377,7 @@ export default function ColumnGrouping({}) {
                 if(row['column']['parent']['name']){
                   //  clm_ = row['row'][clm]
                    console.log(row['row'], row['row']['entires'],'----',row['row']['entires'][row['column']['parent']['name']],'runnnnnnnnnn', row['column']['parent']['name'])
+                   setInvoices(row['row']['entires'][row['column']['parent']['name']])
                 };
 
                 // console.log(row, '-------........martin-------.........', row['column']['parent']['name'])
