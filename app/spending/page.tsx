@@ -305,7 +305,10 @@ function rowKeyGetter(row: any) {
 
 export default function ColumnGrouping({}) {
   const [rowss, setRowss] = useState(rows);
+
   const [invoices, setInvoices] = useState([])
+  const [saveEdits, setSaveEdits] = useState(false)
+  window.setSaveEdits = setSaveEdits
 
   const [selectedRows, setSelectedRows] = useState(
     (): ReadonlySet<number> => new Set()
@@ -1088,7 +1091,7 @@ export default function ColumnGrouping({}) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <div style={{ padding: 5, paddingTop: 10, paddingBottom: 10, display:"flex" }}>
+      <div style={{ padding: 5, paddingTop: 10, paddingBottom: 10, display: saveEdits? "flex": "none" }}>
         <div
           style={{
             backgroundColor: "transparent",
@@ -1099,14 +1102,9 @@ export default function ColumnGrouping({}) {
             cursor: "pointer",
             fontSize: "14px",
             transition: "background-color 0.3s",
-            maxWidth:200,
+            maxWidth:250,
             textAlign:"center",
-
           }}
-          // onMouseOver={(e) => (e.target.style.backgroundColor = "#005bb5")}
-          // onMouseOut={(e) => (e.target.style.backgroundColor = "#0070f3")}
-          // onMouseDown={(e) => (e.target.style.backgroundColor = "#004494")}
-          // onMouseUp={(e) => (e.target.style.backgroundColor = "#005bb5")}
           onClick={()=> {
             window.parent.postMessage({xmlx: xmlx, new:true},  "*");
           }}
@@ -1124,14 +1122,9 @@ export default function ColumnGrouping({}) {
             cursor: "pointer",
             fontSize: "14px",
             transition: "background-color 0.3s",
-            maxWidth:200,
+            maxWidth:230,
             textAlign:"center",
-
           }}
-          // onMouseOver={(e) => (e.target.style.backgroundColor = "#005bb5")}
-          // onMouseOut={(e) => (e.target.style.backgroundColor = "#0070f3")}
-          // onMouseDown={(e) => (e.target.style.backgroundColor = "#004494")}
-          // onMouseUp={(e) => (e.target.style.backgroundColor = "#005bb5")}
           onClick={()=> {
             window.location.reload()
           }}

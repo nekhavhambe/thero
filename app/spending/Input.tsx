@@ -49,6 +49,7 @@ export default function textEditor({
       ref={autoFocusAndSelect}
       value={row[column.key]}
       onChange={(event) => {
+        window.setSaveEdits(true)
         onRowChange({ ...row, [column.key]: event.target.value })}}
       onBlur={(e) => { 
         onClose(true, false)}}
