@@ -386,8 +386,8 @@ export default function ColumnGrouping({}) {
 
                 // console.log(row, 'RUNNING-----------APPSX')
                 // setInvoices(rowx ? rowx : [])
-                // const doc = document.getElementById("pop")
-                // doc.style.display = "flex"
+                const doc = document.getElementById("pop")
+                doc.style.display = "flex"
                 //alert(JSON.stringify(row))
            
             },
