@@ -30,7 +30,7 @@ const InvoiceList = ({ invoices }) => {
             {invoices[0].map(invoice => {
               console.log(invoice, '<<<<<<<<<<<<------------>>>>>>>>>>>>>>>')
                 if(invoice){
-                    return  ( <tr style={{borderTop:'4px solid black'}} key={invoice.id}>
+                    return  ( <tr style={{borderTop:'4px solid black', paddingTop:8}} key={invoice.id}>
                         <td style={{width:250}}>{invoice.created_from}</td>
                         <td  style={{width:150}}>{invoice.date}</td>
                         <td  style={{width:150, textAlign:"left"}}>{invoice.vendor}</td>
