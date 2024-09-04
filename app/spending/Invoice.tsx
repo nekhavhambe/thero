@@ -6,11 +6,11 @@ const InvoiceList = ({ invoices }) => {
   return (
     <div className="invoice-list">
       <div style={{display:"flex", alignItems:"center"}}>
-      <h2 style={{textAlign:"left", flex:1}}>Purchases List</h2>
+      <h2 style={{textAlign:"left", flex:1}}>Purchases</h2>
       <p style={{textDecoration:"underline"}} onClick={() => {
                                   const doc = document.getElementById("pop")
                                   doc.style.display = "none"
-                }}>Close</p>
+                }}>Close Modal</p>
       </div>
       
       {invoices.length === 0 ? (
@@ -30,11 +30,11 @@ const InvoiceList = ({ invoices }) => {
             {invoices[0].map(invoice => {
               console.log(invoice, '<<<<<<<<<<<<------------>>>>>>>>>>>>>>>')
                 if(invoice){
-                    return  ( <tr style={{borderTop:'1px solid #ccc'}} key={invoice.id}>
+                    return  ( <tr style={{borderTop:'4px solid black'}} key={invoice.id}>
                         <td style={{width:250}}>{invoice.created_from}</td>
                         <td  style={{width:150}}>{invoice.date}</td>
                         <td  style={{width:150, textAlign:"left"}}>{invoice.vendor}</td>
-                        <td  style={{width:150}}>${invoice.amount}</td>
+                        <td  style={{width:150}}>{invoice.amount}</td>
                       </tr>)
                 }
 
