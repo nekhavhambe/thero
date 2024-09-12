@@ -387,9 +387,9 @@ export default function ColumnGrouping({}) {
                 .replace(/,/g, " ");
             },
             renderCell(props: any) {
-              if (props.row.cashflow[props.column.parent.name]) {
+              if (props.row.cashflow_[props.column.parent.name]) {
                 let amount = Number(
-                  props.row.cashflow[props.column.parent.name]
+                  props.row.cashflow_[props.column.parent.name]
                 ); //* (100/115)
                 return new Intl.NumberFormat("en-US", {
                   minimumFractionDigits: 2,
@@ -404,16 +404,16 @@ export default function ColumnGrouping({}) {
             },
           },
           {
-            key: "3" + i,
+            key: "3_" + i,
             name: "Vat",
             width: "190px",
             renderSummaryCell(propss: any) {
               let total = 0;
 
               rowss.forEach((props: any) => {
-                if (props.cashflow[propss.column.parent.name]) {
+                if (props.cashflow_[propss.column.parent.name]) {
                   let amount =
-                    Number(props.cashflow[propss.column.parent.name]) *
+                    Number(props.cashflow_[propss.column.parent.name]) *
                     (15 / 100);
                   total += amount;
                 }
@@ -428,9 +428,9 @@ export default function ColumnGrouping({}) {
                 .replace(/,/g, " ");
             },
             renderCell(props: any) {
-              if (props.row.cashflow[props.column.parent.name]) {
+              if (props.row.cashflow_[props.column.parent.name]) {
                 let amount =
-                  Number(props.row.cashflow[props.column.parent.name]) *
+                  Number(props.row.cashflow_[props.column.parent.name]) *
                   (15 / 100);
                 return new Intl.NumberFormat("en-US", {
                   minimumFractionDigits: 2,
@@ -445,7 +445,7 @@ export default function ColumnGrouping({}) {
             },
           },
           {
-            key: "4" + i,
+            key: "4_" + i,
             name: "Total Claimed",
             width: "190px",
 
@@ -453,9 +453,9 @@ export default function ColumnGrouping({}) {
               let total = 0;
 
               rowss.forEach((props: any) => {
-                if (props.cashflow[propss.column.parent.name]) {
+                if (props.cashflow_[propss.column.parent.name]) {
                   let amount =
-                    Number(props.cashflow[propss.column.parent.name]) *
+                    Number(props.cashflow_[propss.column.parent.name]) *
                     (115 / 100);
                   total += amount;
                 }
@@ -470,9 +470,9 @@ export default function ColumnGrouping({}) {
                 .replace(/,/g, " ");
             },
             renderCell(props: any) {
-              if (props.row.cashflow[props.column.parent.name]) {
+              if (props.row.cashflow_[props.column.parent.name]) {
                 let amount =
-                  Number(props.row.cashflow[props.column.parent.name]) *
+                  Number(props.row.cashflow_[props.column.parent.name]) *
                   (115 / 100);
                 return new Intl.NumberFormat("en-US", {
                   minimumFractionDigits: 2,
@@ -487,7 +487,7 @@ export default function ColumnGrouping({}) {
             },
           },
           {
-            key: monthEnded,
+            key: monthEnded+"_",
             name: "Budgted",
             width: "190px",
             renderEditCell: Inputs,
@@ -501,7 +501,7 @@ export default function ColumnGrouping({}) {
                 } else if (props.cashflow_monthly[propss.column.parent.name]) {
                   amount =
                     Number(
-                      props.cashflow_monthly[propss.column.parent.name].amount
+                      props.cashflow_monthly_[propss.column.parent.name].amount
                     ) *
                     (100 / 100);
                 }
