@@ -3,6 +3,10 @@ import React from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 // Example InvoiceList component
 const InvoiceList = ({ invoices }) => {
+
+  const formatAmount = (amount: number) => {
+    return amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  }
     
   return (
     <div className="invoice-list">
@@ -35,7 +39,7 @@ const InvoiceList = ({ invoices }) => {
                 <TableCell className="py-2">{invoice.date}</TableCell>
                 <TableCell className="py-2">{invoice.supplier}</TableCell>
                 <TableCell className="py-2">{invoice.item}</TableCell>
-                {/* <TableCell className="text-right py-2">{formatAmount(invoice.amount)}</TableCell> */}
+                <TableCell className="text-right py-2">{formatAmount(invoice.amount)}</TableCell>
               </TableRow>
             ))}
           </TableBody>
