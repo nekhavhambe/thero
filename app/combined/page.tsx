@@ -867,10 +867,10 @@ export default function ColumnGrouping({}) {
             let total = 0;
             console.log(rows);
             rowss.forEach((props: any) => {
-              let amount =
-                Number(props["billed_"].replace(/\s+/g, "")) * (100 / 100);
-              console.log(amount, props["billed_"], "in the vat");
-              total += amount;
+              // let amount =
+              // Number(props["billed_"].replace(/\s+/g, "")) * (100 / 100);
+              // console.log(amount, props["billed_"], "in the vat");
+              // total += amount;
             });
 
             return new Intl.NumberFormat("en-US", {
