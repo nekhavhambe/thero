@@ -5,10 +5,10 @@ const InvoiceList = ({ invoices }) => {
     
   return (
     <div className="invoice-list">
-<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', paddingBottom:30 }}>
-  <h2 style={{ margin: 0, fontSize: '24px', color: '#333' }}>Actual Spending</h2>
+<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', paddingBottom:30, paddingTop:15 }}>
+  <h2 style={{ margin: 0, fontSize: '20px', color: '#333', }}>Actual Spending</h2>
   <p
-    style={{ margin: 0, fontSize: '14px', color: '#007bff', cursor: 'pointer', textDecoration: 'underline' }}
+    style={{ margin: 0, fontSize: '14px', color: 'green', cursor: 'pointer', textDecoration: 'underline' }}
     onClick={() => {
       const doc = document.getElementById('pop');
       if (doc) doc.style.display = 'none';
