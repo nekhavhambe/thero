@@ -922,7 +922,7 @@ export default function ColumnGrouping({}) {
         {
           key: "6",
           name: "Total Actual Spending (Incl)",
-          width: "190px",
+          width: "250px",
           renderSummaryCell() {
             let total = 0;
             rowss.forEach((props: any) => {
@@ -955,7 +955,7 @@ export default function ColumnGrouping({}) {
         },
         {
           key: "forecast",
-          width: "190px",
+          width: "250px",
           name: "Spending Budget Remaining",
           renderSummaryCell() {
             let total = 0;
