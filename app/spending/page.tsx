@@ -1144,7 +1144,7 @@ export default function ColumnGrouping({}) {
 
       <DataGrid
         style={{ flex: 1 , border:"1px solid red"}}
-         rowClass={"me"}
+        //  rowClass={"me"}
         //   rowKeyGetter={rowKeyGetter}
         columns={columns}
         rows={rowss}
