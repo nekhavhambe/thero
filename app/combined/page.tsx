@@ -498,7 +498,7 @@ export default function ColumnGrouping({}) {
                 let amount = 0;
                 if (props[propss.column.parent.name]) {
                   amount = Number(props[propss.column.parent.name]);
-                } else if (props.cashflow_monthly[propss.column.parent.name]) {
+                } else if (props.cashflow_monthly_[propss.column.parent.name]) {
                   amount =
                     Number(
                       props.cashflow_monthly_[propss.column.parent.name].amount
@@ -540,7 +540,7 @@ export default function ColumnGrouping({}) {
             },
           },
           {
-            key: "6" + i,
+            key: "6_" + i,
             name: "Vat",
             width: "190px",
 
@@ -552,10 +552,10 @@ export default function ColumnGrouping({}) {
                 if (props[propss.column.parent.name]) {
                   amount =
                     Number(props[propss.column.parent.name]) * (15 / 100);
-                } else if (props.cashflow_monthly[propss.column.parent.name]) {
+                } else if (props.cashflow_monthly_[propss.column.parent.name]) {
                   amount =
                     Number(
-                      props.cashflow_monthly[propss.column.parent.name].amount
+                      props.cashflow_monthly_[propss.column.parent.name].amount
                     ) *
                     (15 / 100);
                 }
@@ -576,10 +576,10 @@ export default function ColumnGrouping({}) {
               let amount = 0;
               if (props.row[props.column.parent.name]) {
                 amount = props.row[props.column.parent.name] * (15 / 100);
-              } else if (props.row.cashflow_monthly[props.column.parent.name]) {
+              } else if (props.row.cashflow_monthly_[props.column.parent.name]) {
                 amount =
                   Number(
-                    props.row.cashflow_monthly[props.column.parent.name].amount
+                    props.row.cashflow_monthly_[props.column.parent.name].amount
                   ) *
                   (15 / 100);
               }
@@ -593,9 +593,8 @@ export default function ColumnGrouping({}) {
                 .replace(/,/g, " ");
             },
           },
-
           {
-            key: "7" + i,
+            key: "7_" + i,
             name: "Total Budgted",
             width: "190px",
 
@@ -607,10 +606,10 @@ export default function ColumnGrouping({}) {
                 if (props[propss.column.parent.name]) {
                   amount =
                     Number(props[propss.column.parent.name]) * (115 / 100);
-                } else if (props.cashflow_monthly[propss.column.parent.name]) {
+                } else if (props.cashflow_monthly_[propss.column.parent.name]) {
                   amount =
                     Number(
-                      props.cashflow_monthly[propss.column.parent.name].amount
+                      props.cashflow_monthly_[propss.column.parent.name].amount
                     ) *
                     (115 / 100);
                 }
@@ -631,10 +630,10 @@ export default function ColumnGrouping({}) {
               let amount = 0;
               if (props.row[props.column.parent.name]) {
                 amount = props.row[props.column.parent.name] * (115 / 100);
-              } else if (props.row.cashflow_monthly[props.column.parent.name]) {
+              } else if (props.row.cashflow_monthly_[props.column.parent.name]) {
                 amount =
                   Number(
-                    props.row.cashflow_monthly[props.column.parent.name].amount
+                    props.row.cashflow_monthly_[props.column.parent.name].amount
                   ) *
                   (115 / 100);
               }
@@ -649,7 +648,7 @@ export default function ColumnGrouping({}) {
             },
           },
           {
-            key: "8" + i,
+            key: "8_" + i,
             name: "Over/(Under) Billed",
             width: "190px",
             renderSummaryCell(propss: any) {
@@ -660,18 +659,18 @@ export default function ColumnGrouping({}) {
                 if (props[propss.column.parent.name]) {
                   amount =
                     Number(props[propss.column.parent.name]) * (115 / 100);
-                } else if (props.cashflow_monthly[propss.column.parent.name]) {
+                } else if (props.cashflow_monthly_[propss.column.parent.name]) {
                   amount =
                     Number(
-                      props.cashflow_monthly[propss.column.parent.name].amount
+                      props.cashflow_monthly_[propss.column.parent.name].amount
                     ) *
                     (115 / 100);
                 }
 
                 let actual = 0;
-                if (props.cashflow[propss.column.parent.name]) {
+                if (props.cashflow_[propss.column.parent.name]) {
                   actual =
-                    Number(props.cashflow[propss.column.parent.name]) *
+                    Number(props.cashflow_[propss.column.parent.name]) *
                     (115 / 100);
                 }
 
@@ -692,18 +691,18 @@ export default function ColumnGrouping({}) {
               if (props.row[props.column.parent.name]) {
                 totoal_budget =
                   props.row[props.column.parent.name] * (115 / 100);
-              } else if (props.row.cashflow_monthly[props.column.parent.name]) {
+              } else if (props.row.cashflow_monthly_[props.column.parent.name]) {
                 totoal_budget =
                   Number(
-                    props.row.cashflow_monthly[props.column.parent.name].amount
+                    props.row.cashflow_monthly_[props.column.parent.name].amount
                   ) *
                   (115 / 100);
               }
 
               let actual = 0;
-              if (props.row.cashflow[props.column.parent.name]) {
+              if (props.row.cashflow_[props.column.parent.name]) {
                 actual =
-                  Number(props.row.cashflow[props.column.parent.name]) *
+                  Number(props.row.cashflow_[props.column.parent.name]) *
                   (115 / 100);
               }
 
