@@ -351,7 +351,7 @@ export default function ColumnGrouping({}) {
         children: [
           {
             key: "2" + i,
-            name: "Claimed",
+            name: "Actual Spending",
             width: "190px",
             renderSummaryCell(propss: any) {
               let total = 0;
@@ -457,7 +457,7 @@ export default function ColumnGrouping({}) {
           },
           {
             key: "4" + i,
-            name: "Total Claimed",
+            name: "Total Spending",
 
             renderSummaryCell(propss: any) {
               let total = 0;
@@ -498,7 +498,7 @@ export default function ColumnGrouping({}) {
           },
           {
             key: monthEnded,
-            name: "Budgted",
+            name: "Budgted Spending",
             width: "150px",
             renderEditCell: Inputs,
             renderSummaryCell(propss: any) {
@@ -606,7 +606,7 @@ export default function ColumnGrouping({}) {
 
           {
             key: "7" + i,
-            name: "Total Budgted",
+            name: "Total Budgted Spending",
             width: "150px",
 
             renderSummaryCell(propss: any) {
@@ -660,7 +660,7 @@ export default function ColumnGrouping({}) {
           },
           {
             key: "8" + i,
-            name: "Over/Under Billed",
+            name: "Over/Under Spending",
 
             renderSummaryCell(propss: any) {
               let total = 0;
@@ -717,7 +717,7 @@ export default function ColumnGrouping({}) {
                   (115 / 100);
               }
 
-              let diff = actual - totoal_budget;
+              let diff = (actual - totoal_budget) * -1;
               return new Intl.NumberFormat("en-US", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,
@@ -1092,7 +1092,7 @@ export default function ColumnGrouping({}) {
   return (
     <div style={{ display: "flex", flexDirection: "column" , minHeight:40}}>
 
-      
+
       <div id='save' style={{ padding: 5, paddingTop: 10, paddingBottom: 10, display:"none", gap:10 }}>
         <div
           style={{
