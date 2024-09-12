@@ -879,7 +879,7 @@ export default function ColumnGrouping({}) {
                       .replace(/,/g, " ");
                   },
                   renderCell(props: any) {
-                    let num = Number(props.row["billed"].replace(/\s+/g, ""));
+                    let num = Number(props.row["billed_"].replace(/\s+/g, ""));
                     return new Intl.NumberFormat("en-US", {
                       minimumFractionDigits: 2,
                       maximumFractionDigits: 2,
@@ -890,15 +890,15 @@ export default function ColumnGrouping({}) {
                   },
                 },
                 {
-                  key: "5",
+                  key: "5_",
                   name: "Vat",
                   width: "190px",
                   renderSummaryCell() {
                     let total = 0;
                     rowss.forEach((props: any) => {
                       let amount =
-                        Number(props["billed"].replace(/\s+/g, "")) * (15 / 100);
-                      console.log(amount, props["billed"], "in the vat");
+                        Number(props["billed_"].replace(/\s+/g, "")) * (15 / 100);
+                      console.log(amount, props["billed_"], "in the vat");
                       total += amount;
                     });
         
@@ -925,14 +925,14 @@ export default function ColumnGrouping({}) {
                   },
                 },
                 {
-                  key: "6",
+                  key: "6_",
                   name: "Total Claimed (Incl)",
                   width: "190px",
                   renderSummaryCell() {
                     let total = 0;
                     rowss.forEach((props: any) => {
                       let amount =
-                        Number(props["billed"].replace(/\s+/g, "")) * (115 / 100);
+                        Number(props["billed_"].replace(/\s+/g, "")) * (115 / 100);
                       total += amount;
                     });
         
@@ -946,7 +946,7 @@ export default function ColumnGrouping({}) {
                   },
                   renderCell(props: any) {
                     let num: any = (
-                      Number(props.row["billed"].replace(/\s+/g, "")) *
+                      Number(props.row["billed_"].replace(/\s+/g, "")) *
                       (115 / 100)
                     ).toFixed(2);
                     return new Intl.NumberFormat("en-US", {
