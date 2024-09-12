@@ -729,7 +729,7 @@ export default function ColumnGrouping({}) {
                   (115 / 100);
               }
 
-              let diff = (actual - totoal_budget) * -1;
+              let diff = (actual - totoal_budget) * -1 != 0 ? (actual - totoal_budget) * -1 : 0.00;
               return new Intl.NumberFormat("en-US", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,
