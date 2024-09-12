@@ -783,6 +783,7 @@ export default function ColumnGrouping({}) {
               .replace(/,/g, " ");
           },
         },
+        // start
         {
           key: "4",
           name: "Claimed Excl",
@@ -934,6 +935,7 @@ export default function ColumnGrouping({}) {
               .replace(/,/g, " ");
           },
         },
+        // end
       ],
     },
     { key: "8", name: " " },
