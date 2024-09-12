@@ -458,6 +458,7 @@ export default function ColumnGrouping({}) {
           {
             key: "4" + i,
             name: "Total Spending",
+            width: "190px",
 
             renderSummaryCell(propss: any) {
               let total = 0;
@@ -607,7 +608,7 @@ export default function ColumnGrouping({}) {
           {
             key: "7" + i,
             name: "Total Budgted Spending",
-            width: "150px",
+            width: "190px",
 
             renderSummaryCell(propss: any) {
               let total = 0;
