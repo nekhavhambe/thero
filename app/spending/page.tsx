@@ -672,7 +672,7 @@ export default function ColumnGrouping({}) {
           },
           {
             key: "8" + i,
-            name: "Over/Under Spending",
+            name: "(Over)/Under Spending",
 
             renderSummaryCell(propss: any) {
               let total = 0;
