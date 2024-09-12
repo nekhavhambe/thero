@@ -697,7 +697,7 @@ export default function ColumnGrouping({}) {
                     (115 / 100);
                 }
 
-                total += actual - amount;
+                total +=  amount - actual;
               });
 
               return new Intl.NumberFormat("en-US", {
