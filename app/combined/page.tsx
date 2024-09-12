@@ -24,182 +24,182 @@ function toggleLoadingScreen(show) {
   }
 }
 
-let lists = [
-  {
-    id: "15783",
-    name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=15783'>15783--Majuba UCG Site-Hydrogeological Services</a>",
-    value: "51 055.40",
-    billed: "0",
-    forecast: "51 055.40",
-    cashflow: "[]",
-    cashflow_monthly: "{}",
-    row: 0,
-  },
-  {
-    id: "15781",
-    name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=15781'>15781--MCWAP ECO</a>",
-    value: "454 489.92",
-    billed: "0",
-    forecast: "454 489.92",
-    cashflow: "[]",
-    cashflow_monthly: "{}",
-    row: 1,
-  },
-  {
-    id: "15779",
-    name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=15779'>15779--Witkop Pietersburg line 3 132kv powerline-ECO-Task Order</a>",
-    value: "542 716.20",
-    billed: "0",
-    forecast: "542 716.20",
-    cashflow: "[]",
-    cashflow_monthly: "{}",
-    row: 2,
-  },
-  {
-    id: "15770",
-    name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=15770'>15770--CMJAH Fire Remedial Works</a>",
-    value: "1 251 232.12",
-    billed: "0",
-    forecast: "1 251 232.12",
-    cashflow: "[]",
-    cashflow_monthly: "{}",
-    row: 3,
-  },
-  {
-    id: "11364",
-    name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=11364'>11364--Tshebela  Rampheri Unin 132 kv Power line</a>",
-    value: "376 965.20",
-    billed: "0",
-    forecast: "376 965.20",
-    cashflow: "[]",
-    cashflow_monthly: "{}",
-    row: 4,
-  },
-  {
-    id: "11365",
-    name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=11365'>11365--TASEZ PHASE 2 CDC/606/23</a>",
-    value: "316 375.00",
-    billed: "0",
-    forecast: "316 375.00",
-    cashflow: "[]",
-    cashflow_monthly: "{}",
-    row: 5,
-  },
-  {
-    id: "11366",
-    name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=11366'>11366--Mhinga Substation 4503403637</a>",
-    value: "526 245.40",
-    billed: "0",
-    forecast: "526 245.40",
-    cashflow: "[]",
-    cashflow_monthly: "{}",
-    row: 6,
-  },
-  {
-    id: "11367",
-    name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=11367'>11367--Majuba UCG</a>",
-    value: "2 561 280.00",
-    billed: "0",
-    forecast: "2 561 280.00",
-    cashflow: "[]",
-    cashflow_monthly: "{}",
-    row: 7,
-  },
-  {
-    id: "11368",
-    name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=11368'>11368--Leseding Substation  0015TX</a>",
-    value: "443 330.00",
-    billed: "0",
-    forecast: "443 330.00",
-    cashflow: "[]",
-    cashflow_monthly: "{}",
-    row: 8,
-  },
-  {
-    id: "11369",
-    name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=11369'>11369--Alex TRA 1081k</a>",
-    value: "136 610.00",
-    billed: "0",
-    forecast: "116 610.00",
-    cashflow: "[]",
-    cashflow_monthly:
-      '{"Month Ended March 2024":{"amount":20000,"key":"1431"}}',
-    row: 9,
-  },
-  {
-    id: "11538",
-    name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=11538'>11538--Non-billable</a>",
-    value: "57 750.00",
-    billed: "52 750.00",
-    forecast: "5 000.00",
-    cashflow:
-      '[{"amount":2750,"date":"07/31/2024"},{"amount":50000,"date":"07/31/2024"}]',
-    cashflow_monthly:
-      '{"Month Ended December 2024":{"amount":5000,"key":"1432"},"Month Ended July 2024":{"amount":0,"key":"1433"},"Month Ended August 2024":{"amount":0,"key":"1434"},"Month Ended September 2024":{"amount":0,"key":"1435"},"Month Ended October 2024":{"amount":0,"key":"1436"},"Month Ended November 2024":{"amount":0,"key":"1437"},"Month Ended March 2024":{"amount":15000,"key":"1421"},"Month Ended April 2024":{"amount":20000,"key":"1422"},"Month Ended May 2024":{"amount":6787,"key":"1423"},"Month Ended June 2024":{"amount":5963,"key":"1424"}}',
-    row: 10,
-  },
-  {
-    id: "12045",
-    name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=12045'>12045--Uchoba Task Order -Ecological Walk down</a>",
-    value: "118 983.50",
-    billed: "0",
-    forecast: "118 983.50",
-    cashflow: "[]",
-    cashflow_monthly: "{}",
-    row: 11,
-  },
-  {
-    id: "12051",
-    name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=12051'>12051--Uchoba Task Order - Heritage Walkdown</a>",
-    value: "164 309.50",
-    billed: "0",
-    forecast: "164 309.50",
-    cashflow: "[]",
-    cashflow_monthly: "{}",
-    row: 12,
-  },
-  {
-    id: "12064",
-    name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=12064'>12064--Entokozweni Tekwane North 132KVS Power Line - Heritage Walkthrought</a>",
-    value: "94 646.80",
-    billed: "0",
-    forecast: "94 646.80",
-    cashflow: "[]",
-    cashflow_monthly: "{}",
-    row: 13,
-  },
-  {
-    id: "12065",
-    name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=12065'>12065--Entokozweni Tekwane North 132KVS Power Line - Ecological Walkthrought</a>",
-    value: "104 306.80",
-    billed: "0",
-    forecast: "104 306.80",
-    cashflow: "[]",
-    cashflow_monthly: "{}",
-    row: 14,
-  },
-  {
-    id: "12074",
-    name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=12074'>12074--2319H – ARIES UPINGTON 400KV</a>",
-    value: "4 407 800.00",
-    billed: "0",
-    forecast: "3 857 800.00",
-    cashflow: "[]",
-    cashflow_monthly:
-      '{"Month Ended August 2024":{"amount":500000,"key":"1425"},"Month Ended March 2024":{"amount":50000,"key":"1426"},"Month Ended April 2024":{"amount":0,"key":"1427"},"Month Ended May 2024":{"amount":0,"key":"1428"},"Month Ended June 2024":{"amount":0,"key":"1429"},"Month Ended July 2024":{"amount":0,"key":"1430"}}',
-    row: 15,
-  },
-  {
-    id: "12097",
-    name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=12097'>12097--GEMSBOK KWAMHLANGA 132KV POWERLINE – ECOLOGICAL WALKTHROUGH</a>",
-    value: "53 675.00",
-    billed: "0",
-    forecast: "53 675.00",
-    cashflow: "[]",
-    cashflow_monthly: "{}",
-    row: 16,
-  },
-];
+// let lists = [
+//   {
+//     id: "15783",
+//     name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=15783'>15783--Majuba UCG Site-Hydrogeological Services</a>",
+//     value: "51 055.40",
+//     billed: "0",
+//     forecast: "51 055.40",
+//     cashflow: "[]",
+//     cashflow_monthly: "{}",
+//     row: 0,
+//   },
+//   {
+//     id: "15781",
+//     name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=15781'>15781--MCWAP ECO</a>",
+//     value: "454 489.92",
+//     billed: "0",
+//     forecast: "454 489.92",
+//     cashflow: "[]",
+//     cashflow_monthly: "{}",
+//     row: 1,
+//   },
+//   {
+//     id: "15779",
+//     name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=15779'>15779--Witkop Pietersburg line 3 132kv powerline-ECO-Task Order</a>",
+//     value: "542 716.20",
+//     billed: "0",
+//     forecast: "542 716.20",
+//     cashflow: "[]",
+//     cashflow_monthly: "{}",
+//     row: 2,
+//   },
+//   {
+//     id: "15770",
+//     name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=15770'>15770--CMJAH Fire Remedial Works</a>",
+//     value: "1 251 232.12",
+//     billed: "0",
+//     forecast: "1 251 232.12",
+//     cashflow: "[]",
+//     cashflow_monthly: "{}",
+//     row: 3,
+//   },
+//   {
+//     id: "11364",
+//     name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=11364'>11364--Tshebela  Rampheri Unin 132 kv Power line</a>",
+//     value: "376 965.20",
+//     billed: "0",
+//     forecast: "376 965.20",
+//     cashflow: "[]",
+//     cashflow_monthly: "{}",
+//     row: 4,
+//   },
+//   {
+//     id: "11365",
+//     name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=11365'>11365--TASEZ PHASE 2 CDC/606/23</a>",
+//     value: "316 375.00",
+//     billed: "0",
+//     forecast: "316 375.00",
+//     cashflow: "[]",
+//     cashflow_monthly: "{}",
+//     row: 5,
+//   },
+//   {
+//     id: "11366",
+//     name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=11366'>11366--Mhinga Substation 4503403637</a>",
+//     value: "526 245.40",
+//     billed: "0",
+//     forecast: "526 245.40",
+//     cashflow: "[]",
+//     cashflow_monthly: "{}",
+//     row: 6,
+//   },
+//   {
+//     id: "11367",
+//     name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=11367'>11367--Majuba UCG</a>",
+//     value: "2 561 280.00",
+//     billed: "0",
+//     forecast: "2 561 280.00",
+//     cashflow: "[]",
+//     cashflow_monthly: "{}",
+//     row: 7,
+//   },
+//   {
+//     id: "11368",
+//     name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=11368'>11368--Leseding Substation  0015TX</a>",
+//     value: "443 330.00",
+//     billed: "0",
+//     forecast: "443 330.00",
+//     cashflow: "[]",
+//     cashflow_monthly: "{}",
+//     row: 8,
+//   },
+//   {
+//     id: "11369",
+//     name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=11369'>11369--Alex TRA 1081k</a>",
+//     value: "136 610.00",
+//     billed: "0",
+//     forecast: "116 610.00",
+//     cashflow: "[]",
+//     cashflow_monthly:
+//       '{"Month Ended March 2024":{"amount":20000,"key":"1431"}}',
+//     row: 9,
+//   },
+//   {
+//     id: "11538",
+//     name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=11538'>11538--Non-billable</a>",
+//     value: "57 750.00",
+//     billed: "52 750.00",
+//     forecast: "5 000.00",
+//     cashflow:
+//       '[{"amount":2750,"date":"07/31/2024"},{"amount":50000,"date":"07/31/2024"}]',
+//     cashflow_monthly:
+//       '{"Month Ended December 2024":{"amount":5000,"key":"1432"},"Month Ended July 2024":{"amount":0,"key":"1433"},"Month Ended August 2024":{"amount":0,"key":"1434"},"Month Ended September 2024":{"amount":0,"key":"1435"},"Month Ended October 2024":{"amount":0,"key":"1436"},"Month Ended November 2024":{"amount":0,"key":"1437"},"Month Ended March 2024":{"amount":15000,"key":"1421"},"Month Ended April 2024":{"amount":20000,"key":"1422"},"Month Ended May 2024":{"amount":6787,"key":"1423"},"Month Ended June 2024":{"amount":5963,"key":"1424"}}',
+//     row: 10,
+//   },
+//   {
+//     id: "12045",
+//     name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=12045'>12045--Uchoba Task Order -Ecological Walk down</a>",
+//     value: "118 983.50",
+//     billed: "0",
+//     forecast: "118 983.50",
+//     cashflow: "[]",
+//     cashflow_monthly: "{}",
+//     row: 11,
+//   },
+//   {
+//     id: "12051",
+//     name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=12051'>12051--Uchoba Task Order - Heritage Walkdown</a>",
+//     value: "164 309.50",
+//     billed: "0",
+//     forecast: "164 309.50",
+//     cashflow: "[]",
+//     cashflow_monthly: "{}",
+//     row: 12,
+//   },
+//   {
+//     id: "12064",
+//     name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=12064'>12064--Entokozweni Tekwane North 132KVS Power Line - Heritage Walkthrought</a>",
+//     value: "94 646.80",
+//     billed: "0",
+//     forecast: "94 646.80",
+//     cashflow: "[]",
+//     cashflow_monthly: "{}",
+//     row: 13,
+//   },
+//   {
+//     id: "12065",
+//     name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=12065'>12065--Entokozweni Tekwane North 132KVS Power Line - Ecological Walkthrought</a>",
+//     value: "104 306.80",
+//     billed: "0",
+//     forecast: "104 306.80",
+//     cashflow: "[]",
+//     cashflow_monthly: "{}",
+//     row: 14,
+//   },
+//   {
+//     id: "12074",
+//     name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=12074'>12074--2319H – ARIES UPINGTON 400KV</a>",
+//     value: "4 407 800.00",
+//     billed: "0",
+//     forecast: "3 857 800.00",
+//     cashflow: "[]",
+//     cashflow_monthly:
+//       '{"Month Ended August 2024":{"amount":500000,"key":"1425"},"Month Ended March 2024":{"amount":50000,"key":"1426"},"Month Ended April 2024":{"amount":0,"key":"1427"},"Month Ended May 2024":{"amount":0,"key":"1428"},"Month Ended June 2024":{"amount":0,"key":"1429"},"Month Ended July 2024":{"amount":0,"key":"1430"}}',
+//     row: 15,
+//   },
+//   {
+//     id: "12097",
+//     name: "<a href='pt_main.phtml?.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&pageId=12696&objDefId=10045&.sess=u-Fjayk8b90-KP-K04W2B6KS3T4pbrvwD94-rVAVPyj-ytOFtgTB8d0-&.op=3801&id=12097'>12097--GEMSBOK KWAMHLANGA 132KV POWERLINE – ECOLOGICAL WALKTHROUGH</a>",
+//     value: "53 675.00",
+//     billed: "0",
+//     forecast: "53 675.00",
+//     cashflow: "[]",
+//     cashflow_monthly: "{}",
+//     row: 16,
+//   },
+// ];
 
 function aggregateMonthlyTotals(data: any) {
   // Object to store the sum of amounts for each month
@@ -288,18 +288,18 @@ function aggregateMonthlyTotals_(data: any) {
    return result;
 }
 
-lists = lists.map((el) => {
-  let new_el = el;
-  new_el.cashflow_monthly = JSON.parse(new_el.cashflow_monthly);
-  let flow: any = new_el.cashflow_monthly;
-  const transformedObject: any = {};
-  for (const [month, data] of Object.entries(flow)) {
-    transformedObject[month] = data.amount;
-  }
+// lists = lists.map((el) => {
+//   let new_el = el;
+//   new_el.cashflow_monthly = JSON.parse(new_el.cashflow_monthly);
+//   let flow: any = new_el.cashflow_monthly;
+//   const transformedObject: any = {};
+//   for (const [month, data] of Object.entries(flow)) {
+//     transformedObject[month] = data.amount;
+//   }
 
-  new_el.cashflow = aggregateMonthlyTotals(JSON.parse(new_el.cashflow));
-  return { ...new_el, ...transformedObject };
-});
+//   new_el.cashflow = aggregateMonthlyTotals(JSON.parse(new_el.cashflow));
+//   return { ...new_el, ...transformedObject };
+// });
 
 
 function formatDateToCustomFormat(date: any) {
@@ -307,7 +307,7 @@ function formatDateToCustomFormat(date: any) {
   return new Intl.DateTimeFormat("en-GB", options).format(date);
 }
 
-const rows = lists;
+const rows = [];
 
 function rowKeyGetter(row: any) {
   return row.id;
@@ -856,16 +856,17 @@ export default function ColumnGrouping({}) {
         },
                 // start
                 {
-                  key: "4",
+                  key: "4_",
                   name: "Claimed Excl",
                   width: "190px",
                   renderSummaryCell() {
                     let total = 0;
                     console.log(rows);
                     rowss.forEach((props: any) => {
+                   
                       let amount =
-                        Number(props["billed"].replace(/\s+/g, "")) * (100 / 100);
-                      console.log(amount, props["billed"], "in the vat");
+                        Number(props["billed_"].replace(/\s+/g, "")) * (100 / 100);
+                      console.log(amount, props["billed_"], "in the vat");
                       total += amount;
                     });
         
