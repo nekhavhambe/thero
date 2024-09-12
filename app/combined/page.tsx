@@ -302,18 +302,7 @@ lists = lists.map((el) => {
 });
 
 
-lists = lists.map((el) => {
-  let new_el = el;
-  new_el.cashflow_monthly_ = JSON.parse(new_el.cashflow_monthly_);
-  let flow: any = new_el.cashflow_monthly_;
-  const transformedObject: any = {};
-  for (const [month, data] of Object.entries(flow)) {
-    transformedObject[month] = data.amount;
-  }
 
-  new_el.cashflow_ = aggregateMonthlyTotals(JSON.parse(new_el.cashflow_));
-  return { ...new_el, ...transformedObject };
-});
 
 
 function formatDateToCustomFormat(date: any) {
