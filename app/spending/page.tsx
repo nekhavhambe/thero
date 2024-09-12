@@ -1106,7 +1106,7 @@ export default function ColumnGrouping({}) {
 
 <div className="loading-screen">
   <div className="pulse-loader"></div>
-  <p className="loading-text">Loading...</p>
+  <p className="loading-text">Saving...</p>
 </div>
 
 
