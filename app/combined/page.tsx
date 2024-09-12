@@ -959,7 +959,7 @@ export default function ColumnGrouping({}) {
                   },
                 },
                 {
-                  key: "forecast",
+                  key: "forecast_",
                   width: "190px",
                   name: "Budget Remaining",
                   renderSummaryCell() {
@@ -1146,6 +1146,55 @@ export default function ColumnGrouping({}) {
 
             let value = Number(props.row.value.replace(/\s+/g, ""));
             let diff = (value - amount) * (115 / 100);
+            return new Intl.NumberFormat("en-US", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+              useGrouping: true,
+            })
+              .format(diff)
+              .replace(/,/g, " ");
+          },
+        },
+        {
+          key: "budget_profit",
+          width: "250px",
+          name: "Spending Budget Remaining",
+          // renderSummaryCell() {
+          //   let total = 0;
+          //   rowss.forEach((props: any) => {
+          //     let amount = 0;
+          //     for (const key in props) {
+          //       if (key.includes("Month Ended")) {
+          //         amount += Number(props[key]);
+          //       }
+          //     }
+
+          //     let value = Number(props.value.replace(/\s+/g, ""));
+          //     let diff = (value - amount) * (115 / 100);
+          //     total += diff;
+          //   });
+
+          //   return new Intl.NumberFormat("en-US", {
+          //     minimumFractionDigits: 2,
+          //     maximumFractionDigits: 2,
+          //     useGrouping: true,
+          //   })
+          //     .format(total)
+          //     .replace(/,/g, " ");
+          // },
+          renderCell(props: any) {
+
+            let spending_actual: any = (
+              Number(props.row["billed"].replace(/\s+/g, "")) *
+              (115 / 100)
+            ).toFixed(2);
+
+            let actual_billed: any = (
+              Number(props.row["billed_"].replace(/\s+/g, "")) *
+              (115 / 100)
+            ).toFixed(2);
+
+            let diff = (actual_billed - spending_actual) 
             return new Intl.NumberFormat("en-US", {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
