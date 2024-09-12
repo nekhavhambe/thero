@@ -351,7 +351,7 @@ export default function ColumnGrouping({}) {
         children: [
           {
             key: "2" + i,
-            name: "Actual Spending",
+            name: "Claimed",
             width: "190px",
             renderSummaryCell(propss: any) {
               let total = 0;
@@ -400,7 +400,7 @@ export default function ColumnGrouping({}) {
                 let amount = Number(
                   props.row.cashflow[props.column.parent.name]
                 ); //* (100/115)
-                return <p  style={{color:"green",textDecoration:"underline", cursor:'pointer'}}> {new Intl.NumberFormat("en-US", {
+                return <p  style={{color:"blue"}}> {new Intl.NumberFormat("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                   useGrouping: true,
@@ -410,7 +410,7 @@ export default function ColumnGrouping({}) {
                   </p>
               } 
 
-              return <p style={{color:"green",textDecoration:"underline", cursor:'pointer'}}>0.00
+              return <p style={{color:"blue"}}>0.00
               </p>;
             },
           },
@@ -457,8 +457,7 @@ export default function ColumnGrouping({}) {
           },
           {
             key: "4" + i,
-            name: "Total Spending",
-            width: "190px",
+            name: "Total Claimed",
 
             renderSummaryCell(propss: any) {
               let total = 0;
@@ -499,7 +498,7 @@ export default function ColumnGrouping({}) {
           },
           {
             key: monthEnded,
-            name: "Budgted Spending",
+            name: "Budgted",
             width: "150px",
             renderEditCell: Inputs,
             renderSummaryCell(propss: any) {
@@ -541,14 +540,13 @@ export default function ColumnGrouping({}) {
                   (100 / 100);
               }
 
-              return <p style={{color:"green", textDecoration:"underline", cursor:"pointer"}}> {new Intl.NumberFormat("en-US", {
+              return new Intl.NumberFormat("en-US", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,
                 useGrouping: true,
               })
                 .format(amount)
-                .replace(/,/g, " ") }
-                </p> 
+                .replace(/,/g, " ");
             },
           },
           {
@@ -608,8 +606,8 @@ export default function ColumnGrouping({}) {
 
           {
             key: "7" + i,
-            name: "Total Budgted Spending",
-            width: "190px",
+            name: "Total Budgted",
+            width: "150px",
 
             renderSummaryCell(propss: any) {
               let total = 0;
@@ -662,7 +660,7 @@ export default function ColumnGrouping({}) {
           },
           {
             key: "8" + i,
-            name: "Over/Under Spending",
+            name: "Over/Under Billed",
 
             renderSummaryCell(propss: any) {
               let total = 0;
@@ -719,7 +717,7 @@ export default function ColumnGrouping({}) {
                   (115 / 100);
               }
 
-              let diff = (actual - totoal_budget) * -1;
+              let diff = actual - totoal_budget;
               return new Intl.NumberFormat("en-US", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,
@@ -759,7 +757,7 @@ export default function ColumnGrouping({}) {
         {
           key: "3",
           name: "Value (Excl)",
-          width: "190px",
+          width: "140px",
           renderSummaryCell() {
             let total = 0;
             rowss.forEach((props: any) => {
@@ -783,7 +781,7 @@ export default function ColumnGrouping({}) {
         {
           key: "3A",
           name: "Vat",
-          width: "190px",
+          width: "140px",
           renderSummaryCell() {
             let total = 0;
             rowss.forEach((props: any) => {
@@ -815,7 +813,7 @@ export default function ColumnGrouping({}) {
         {
           key: "3B",
           name: "Total Value (Incl)",
-          width: "190px",
+          width: "140px",
           renderSummaryCell() {
             let total = 0;
             rowss.forEach((props: any) => {
@@ -847,7 +845,7 @@ export default function ColumnGrouping({}) {
         {
           key: "4",
           name: "Claimed Excl",
-          width: "190px",
+          width: "140px",
           renderSummaryCell() {
             let total = 0;
             rowss.forEach((props: any) => {
@@ -878,7 +876,7 @@ export default function ColumnGrouping({}) {
         {
           key: "5",
           name: "Vat",
-          width: "190px",
+          width: "150px",
           renderSummaryCell() {
             let total = 0;
             rowss.forEach((props: any) => {
@@ -912,7 +910,7 @@ export default function ColumnGrouping({}) {
         {
           key: "6",
           name: "Total Claimed (Incl)",
-          width: "190px",
+          width: "150px",
           renderSummaryCell() {
             let total = 0;
             rowss.forEach((props: any) => {
@@ -945,7 +943,7 @@ export default function ColumnGrouping({}) {
         },
         {
           key: "forecast",
-          width: "190px",
+          width: "150px",
           name: "Budget Remaining",
           renderSummaryCell() {
             let total = 0;
@@ -1094,7 +1092,7 @@ export default function ColumnGrouping({}) {
   return (
     <div style={{ display: "flex", flexDirection: "column" , minHeight:40}}>
 
-
+      
       <div id='save' style={{ padding: 5, paddingTop: 10, paddingBottom: 10, display:"none", gap:10 }}>
         <div
           style={{
@@ -1144,10 +1142,7 @@ export default function ColumnGrouping({}) {
               </div>
 
       <DataGrid
-        style={{ flex: 1 , border:"1px solid green"}}
-        rowClass={(row, index) =>
-          'me' 
-        }
+        style={{ flex: 1 }}
         //   rowKeyGetter={rowKeyGetter}
         columns={columns}
         rows={rowss}
