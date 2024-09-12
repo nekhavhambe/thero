@@ -61,7 +61,8 @@ input::placeholder {
   width: 80px;
   height: 80px;
   border: 16px solid rgba(255, 255, 255, 0.2);
-  border-top-color: #fff;
+  background-color: #fff;
+  /* border-top-color: #fff; */
   border-radius: 50%;
   animation: pulse 1.2s infinite linear;
 }
