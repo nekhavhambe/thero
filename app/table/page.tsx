@@ -343,7 +343,7 @@ export default function ColumnGrouping({}) {
           {
             key: "3" + i,
             name: "Vat",
-            width: "150px",
+            width: "190px",
             renderSummaryCell(propss: any) {
               let total = 0;
 
@@ -384,6 +384,7 @@ export default function ColumnGrouping({}) {
           {
             key: "4" + i,
             name: "Total Claimed",
+            width: "190px",
 
             renderSummaryCell(propss: any) {
               let total = 0;
@@ -425,7 +426,7 @@ export default function ColumnGrouping({}) {
           {
             key: monthEnded,
             name: "Budgted",
-            width: "150px",
+            width: "190px",
             renderEditCell: Inputs,
             renderSummaryCell(propss: any) {
               let total = 0;
@@ -466,19 +467,19 @@ export default function ColumnGrouping({}) {
                   (100 / 100);
               }
 
-              return new Intl.NumberFormat("en-US", {
+              return <p style={{color:"green", textDecoration:"underline", cursor:"pointer"}}> {new Intl.NumberFormat("en-US", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,
                 useGrouping: true,
               })
                 .format(amount)
-                .replace(/,/g, " ");
+                .replace(/,/g, " ")} </p>
             },
           },
           {
             key: "6" + i,
             name: "Vat",
-            width: "150px",
+            width: "190px",
 
             renderSummaryCell(propss: any) {
               let total = 0;
@@ -533,7 +534,7 @@ export default function ColumnGrouping({}) {
           {
             key: "7" + i,
             name: "Total Budgted",
-            width: "150px",
+            width: "190px",
 
             renderSummaryCell(propss: any) {
               let total = 0;
@@ -586,8 +587,8 @@ export default function ColumnGrouping({}) {
           },
           {
             key: "8" + i,
-            name: "Over/Under Billed",
-
+            name: "Over/(Under) Billed",
+            width: "190px",
             renderSummaryCell(propss: any) {
               let total = 0;
 
@@ -683,7 +684,7 @@ export default function ColumnGrouping({}) {
         {
           key: "3",
           name: "Value (Excl)",
-          width: "140px",
+          width: "190px",
           renderSummaryCell() {
             let total = 0;
             console.log(rows);
@@ -708,7 +709,7 @@ export default function ColumnGrouping({}) {
         {
           key: "3A",
           name: "Vat",
-          width: "140px",
+          width: "190px",
           renderSummaryCell() {
             let total = 0;
             console.log(rows);
@@ -741,7 +742,7 @@ export default function ColumnGrouping({}) {
         {
           key: "3B",
           name: "Total Value (Incl)",
-          width: "140px",
+          width: "190px",
           renderSummaryCell() {
             let total = 0;
             console.log(rows);
@@ -774,7 +775,7 @@ export default function ColumnGrouping({}) {
         {
           key: "4",
           name: "Claimed Excl",
-          width: "140px",
+          width: "190px",
           renderSummaryCell() {
             let total = 0;
             console.log(rows);
@@ -807,7 +808,7 @@ export default function ColumnGrouping({}) {
         {
           key: "5",
           name: "Vat",
-          width: "150px",
+          width: "190px",
           renderSummaryCell() {
             let total = 0;
             rowss.forEach((props: any) => {
@@ -842,7 +843,7 @@ export default function ColumnGrouping({}) {
         {
           key: "6",
           name: "Total Claimed (Incl)",
-          width: "150px",
+          width: "190px",
           renderSummaryCell() {
             let total = 0;
             rowss.forEach((props: any) => {
@@ -875,7 +876,7 @@ export default function ColumnGrouping({}) {
         },
         {
           key: "forecast",
-          width: "150px",
+          width: "190px",
           name: "Budget Remaining",
           renderSummaryCell() {
             let total = 0;
