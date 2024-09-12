@@ -758,7 +758,7 @@ export default function ColumnGrouping({}) {
         {
           key: "3",
           name: "Value (Excl)",
-          width: "140px",
+          width: "190px",
           renderSummaryCell() {
             let total = 0;
             rowss.forEach((props: any) => {
@@ -782,7 +782,7 @@ export default function ColumnGrouping({}) {
         {
           key: "3A",
           name: "Vat",
-          width: "140px",
+          width: "190px",
           renderSummaryCell() {
             let total = 0;
             rowss.forEach((props: any) => {
@@ -814,7 +814,7 @@ export default function ColumnGrouping({}) {
         {
           key: "3B",
           name: "Total Value (Incl)",
-          width: "140px",
+          width: "190px",
           renderSummaryCell() {
             let total = 0;
             rowss.forEach((props: any) => {
@@ -846,7 +846,7 @@ export default function ColumnGrouping({}) {
         {
           key: "4",
           name: "Claimed Excl",
-          width: "140px",
+          width: "190px",
           renderSummaryCell() {
             let total = 0;
             rowss.forEach((props: any) => {
@@ -877,7 +877,7 @@ export default function ColumnGrouping({}) {
         {
           key: "5",
           name: "Vat",
-          width: "150px",
+          width: "190px",
           renderSummaryCell() {
             let total = 0;
             rowss.forEach((props: any) => {
@@ -911,7 +911,7 @@ export default function ColumnGrouping({}) {
         {
           key: "6",
           name: "Total Claimed (Incl)",
-          width: "150px",
+          width: "190px",
           renderSummaryCell() {
             let total = 0;
             rowss.forEach((props: any) => {
@@ -944,7 +944,7 @@ export default function ColumnGrouping({}) {
         },
         {
           key: "forecast",
-          width: "150px",
+          width: "190px",
           name: "Budget Remaining",
           renderSummaryCell() {
             let total = 0;
