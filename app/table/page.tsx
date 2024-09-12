@@ -1023,29 +1023,46 @@ export default function ColumnGrouping({}) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      <div style={{ padding: 5, paddingTop: 10, paddingBottom: 10 }}>
+      <div id='save' style={{ padding: 5, paddingTop: 10, paddingBottom: 10, display:"none", gap:10 }}>
         <div
           style={{
-            backgroundColor: "#0070f3",
-            color: "white",
+            backgroundColor: "transparent",
+            color: "green",
             padding: "10px 20px",
-            border: "none",
+            border: "2px solid green",
             borderRadius: "5px",
             cursor: "pointer",
             fontSize: "14px",
             transition: "background-color 0.3s",
+            minWidth:150,
             maxWidth:150,
-            textAlign:"center"
+            textAlign:"center",
           }}
-          onMouseOver={(e) => (e.target.style.backgroundColor = "#005bb5")}
-          onMouseOut={(e) => (e.target.style.backgroundColor = "#0070f3")}
-          onMouseDown={(e) => (e.target.style.backgroundColor = "#004494")}
-          onMouseUp={(e) => (e.target.style.backgroundColor = "#005bb5")}
           onClick={()=> {
             window.parent.postMessage({xmlx: xmlx, new:true},  "*");
           }}
         >
           Save
+        </div>
+        {/* <div style={{width:30}}></div> */}
+        <div
+          style={{
+            backgroundColor: "transparent",
+            color: "green",
+            padding: "10px 20px",
+            border: "2px solid green",
+            borderRadius: "5px",
+            cursor: "pointer",
+            fontSize: "14px",
+            transition: "background-color 0.3s",
+            maxWidth:300,
+            textAlign:"center",
+          }}
+          onClick={()=> {
+            window.location.reload()
+          }}
+        >
+          Discard
         </div>
       </div>
 
