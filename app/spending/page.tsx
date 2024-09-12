@@ -400,7 +400,7 @@ export default function ColumnGrouping({}) {
                 let amount = Number(
                   props.row.cashflow[props.column.parent.name]
                 ); //* (100/115)
-                return <p  style={{color:"blue"}}> {new Intl.NumberFormat("en-US", {
+                return <p  style={{color:"green",textDecoration:"underline", cursor:'default'}}> {new Intl.NumberFormat("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                   useGrouping: true,
@@ -1143,7 +1143,7 @@ export default function ColumnGrouping({}) {
               </div>
 
       <DataGrid
-        style={{ flex: 1 , border:"1px solid red"}}
+        style={{ flex: 1 , border:"1px solid green"}}
         rowClass={(row, index) =>
           'me' 
         }
