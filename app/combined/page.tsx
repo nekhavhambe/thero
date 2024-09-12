@@ -1156,32 +1156,34 @@ export default function ColumnGrouping({}) {
           },
         },
         {
-          key: "budget_profit",
+          key: "actual_profit",
           width: "250px",
-          name: "Spending Budget Remaining",
-          // renderSummaryCell() {
-          //   let total = 0;
-          //   rowss.forEach((props: any) => {
-          //     let amount = 0;
-          //     for (const key in props) {
-          //       if (key.includes("Month Ended")) {
-          //         amount += Number(props[key]);
-          //       }
-          //     }
+          name: "Actual Profit",
+          renderSummaryCell() {
 
-          //     let value = Number(props.value.replace(/\s+/g, ""));
-          //     let diff = (value - amount) * (115 / 100);
-          //     total += diff;
-          //   });
+            let spending = 0;
+            rowss.forEach((props: any) => {
+              let amount =
+                Number(props["billed"].replace(/\s+/g, "")) * (115 / 100);
+                spending += amount;
+            });
 
-          //   return new Intl.NumberFormat("en-US", {
-          //     minimumFractionDigits: 2,
-          //     maximumFractionDigits: 2,
-          //     useGrouping: true,
-          //   })
-          //     .format(total)
-          //     .replace(/,/g, " ");
-          // },
+            let billed = 0;
+            rowss.forEach((props: any) => {
+              let amount =
+                Number(props["billed_"].replace(/\s+/g, "")) * (115 / 100);
+                billed += amount;
+            });
+
+            return new Intl.NumberFormat("en-US", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+              useGrouping: true,
+            })
+              .format(billed - spending)
+              .replace(/,/g, " ");
+      
+          },
           renderCell(props: any) {
 
             let spending_actual: any = (
