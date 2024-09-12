@@ -3,6 +3,10 @@ import React from 'react';
 // Example InvoiceList component
 const InvoiceList = ({ invoices }) => {
     
+  const formatAmount = (amount: number) => {
+    return amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  }
+  
   return (
     <div className="invoice-list">
 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px', paddingBottom:30, paddingTop:15 }}>
@@ -42,7 +46,7 @@ const InvoiceList = ({ invoices }) => {
             <td style={{ padding: '8px', width: '150px', fontSize: '13px', color: '#666' }}>{invoice.date}</td>
             <td style={{ padding: '8px', width: '250px', fontSize: '13px', color: '#666' }}>{invoice.vendor}</td>
             <td style={{ padding: '8px', width: '250px', fontSize: '13px', color: '#666' }}>{invoice.item}</td>
-            <td style={{ padding: '8px', width: '150px', fontSize: '13px', color: '#666' }}>{invoice.amount}</td>
+            <td style={{ padding: '8px', width: '150px', fontSize: '13px', color: '#666' }}>{formatAmount(invoice.amount)}</td>
           </tr>
         );
       }

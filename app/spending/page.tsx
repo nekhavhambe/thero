@@ -541,7 +541,7 @@ export default function ColumnGrouping({}) {
                   (100 / 100);
               }
 
-              return <p style={{color:"green", textDecoration:"underline"}}> {new Intl.NumberFormat("en-US", {
+              return <p style={{color:"green", textDecoration:"underline", cursor:"pointer"}}> {new Intl.NumberFormat("en-US", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,
                 useGrouping: true,
