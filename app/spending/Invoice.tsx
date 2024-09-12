@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import '../globals.css'
+// import '../globals.css'
 // Example InvoiceList component
 const InvoiceList = ({ invoices }) => {
 
