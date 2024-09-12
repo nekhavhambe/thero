@@ -12,6 +12,17 @@ import Inputs from "./Input";
 // import { renderCoordinates } from "./renderers";
 // import type { Props } from './types';
 
+
+function toggleLoadingScreen(show) {
+  const loadingScreen = document.querySelector('.loading-screen');
+  if (show) {
+    loadingScreen.style.display = 'flex';
+  } else {
+    loadingScreen.style.display = 'none';
+  }
+}
+
+
 let lists = [
   {
     id: "15783",
@@ -1024,6 +1035,10 @@ export default function ColumnGrouping({}) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
+      <div className="loading-screen">
+  <div className="pulse-loader"></div>
+  <p className="loading-text">Saving...</p>
+</div>
       <div id='save' style={{ padding: 5, paddingTop: 10, paddingBottom: 10, display:"none", gap:10 }}>
         <div
           style={{
@@ -1040,6 +1055,7 @@ export default function ColumnGrouping({}) {
             textAlign:"center",
           }}
           onClick={()=> {
+            toggleLoadingScreen(true)
             window.parent.postMessage({xmlx: xmlx, new:true},  "*");
           }}
         >
