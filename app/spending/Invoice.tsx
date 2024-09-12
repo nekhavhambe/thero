@@ -1,13 +1,7 @@
-'use client'
 import React from 'react';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-// import '../globals.css'
+
 // Example InvoiceList component
 const InvoiceList = ({ invoices }) => {
-
-  const formatAmount = (amount: number) => {
-    return amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-  }
     
   return (
     <div className="invoice-list">
@@ -23,28 +17,33 @@ const InvoiceList = ({ invoices }) => {
         <p>No invoices available.</p>
       ) : (
         
-        <Table>
-          <TableHeader>
-            <TableRow className="text-xs">
-              <TableHead className="py-2">Convert From</TableHead>
-              <TableHead className="py-2">Date</TableHead>
-              <TableHead className="py-2">Supplier</TableHead>
-              <TableHead className="py-2">Item</TableHead>
-              <TableHead className="text-right py-2">Amount</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {invoices[0].map((invoice) => (
-              <TableRow key={invoice.id} className="text-sm">
-                <TableCell className="py-2">{invoice.convertFrom}</TableCell>
-                <TableCell className="py-2">{invoice.date}</TableCell>
-                <TableCell className="py-2">{invoice.supplier}</TableCell>
-                <TableCell className="py-2">{invoice.item}</TableCell>
-                <TableCell className="text-right py-2">{formatAmount(invoice.amount)}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+<table style="border-collapse: collapse; width: 100%; font-family: Arial, sans-serif;">
+  <thead>
+    <tr style="text-align: left; background-color: #f4f4f4; border-bottom: 2px solid #ddd;">
+      <th style="padding: 8px; width: 250px; font-size: 14px; color: #333;">Created From</th>
+      <th style="padding: 8px; width: 150px; font-size: 14px; color: #333;">Date</th>
+      <th style="padding: 8px; width: 250px; font-size: 14px; color: #333;">Supplier</th>
+      <th style="padding: 8px; width: 250px; font-size: 14px; color: #333;">Item</th>
+      <th style="padding: 8px; width: 150px; font-size: 14px; color: #333;">Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    {invoices[0].map(invoice => {
+      if (invoice) {
+        return (
+          <tr style="background-color: #fff; border-bottom: 1px solid #ddd; height: 30px;" key={invoice.id}>
+            <td style="padding: 8px; width: 250px; font-size: 13px; color: #666;">{invoice.created_from}</td>
+            <td style="padding: 8px; width: 150px; font-size: 13px; color: #666;">{invoice.date}</td>
+            <td style="padding: 8px; width: 250px; font-size: 13px; color: #666;">{invoice.vendor}</td>
+            <td style="padding: 8px; width: 250px; font-size: 13px; color: #666;">{invoice.item}</td>
+            <td style="padding: 8px; width: 150px; font-size: 13px; color: #666;">{invoice.amount}</td>
+          </tr>
+        );
+      }
+    })}
+  </tbody>
+</table>
+
       )}
     </div>
   );

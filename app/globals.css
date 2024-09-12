@@ -1,11 +1,11 @@
 /* @tailwind base; */
-@tailwind components;
+/* @tailwind components;
 @tailwind utilities;
 
 .me {
   border: 1px solid blue !important;
   background-color: pink;
-}
+} */
 
 /* @layer base {
   :root {
