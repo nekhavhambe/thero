@@ -363,16 +363,16 @@ export default function ColumnGrouping({}) {
           //start-
 
           {
-            key: "2" + i,
+            key: "2_" + i,
             name: "Claimed",
             width: "190px",
             renderSummaryCell(propss: any) {
               let total = 0;
 
               rowss.forEach((props: any) => {
-                if (props.cashflow[propss.column.parent.name]) {
+                if (props.cashflow_[propss.column.parent.name]) {
                   let amount = Number(
-                    props.cashflow[propss.column.parent.name]
+                    props.cashflow_[propss.column.parent.name]
                   ); //* (100/115)
                   total += amount;
                 }
@@ -1585,6 +1585,21 @@ export default function ColumnGrouping({}) {
         const transformedObject: any = {};
         for (const [month, data] of Object.entries(flow)) {
           transformedObject[month] = data.amount;
+        }
+
+        console.log(aggregateMonthlyTotals_(JSON.parse(new_el.cashflow)),'-------||||||||--|||||----run')
+        new_el['entires']= aggregateMonthlyTotals_(JSON.parse(new_el.cashflow)),
+        new_el.cashflow = aggregateMonthlyTotals(JSON.parse(new_el.cashflow));
+        return { ...new_el, ...transformedObject };
+      });
+
+      data = data.map((el: any) => {
+        let new_el = el;
+        new_el.cashflow_monthly_ = JSON.parse(new_el.cashflow_monthly_);
+        let flow_: any = new_el.cashflow_monthly_;
+        const transformedObject_: any = {};
+        for (const [month, data] of Object.entries(flow_)) {
+          transformedObject_[month] = data.amount;
         }
 
         console.log(aggregateMonthlyTotals_(JSON.parse(new_el.cashflow)),'-------||||||||--|||||----run')
