@@ -400,7 +400,7 @@ export default function ColumnGrouping({}) {
                 let amount = Number(
                   props.row.cashflow[props.column.parent.name]
                 ); //* (100/115)
-                return <p  style={{color:"green",textDecoration:"underline", cursor:'default'}}> {new Intl.NumberFormat("en-US", {
+                return <p  style={{color:"green",textDecoration:"underline", cursor:'pointer'}}> {new Intl.NumberFormat("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                   useGrouping: true,
@@ -410,7 +410,7 @@ export default function ColumnGrouping({}) {
                   </p>
               } 
 
-              return <p style={{color:"blue"}}>0.00
+              return <p style={{color:"green",textDecoration:"underline", cursor:'pointer'}}>0.00
               </p>;
             },
           },
