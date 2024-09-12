@@ -912,7 +912,7 @@ export default function ColumnGrouping({}) {
                   },
                   renderCell(props: any) {
                     let num: any = (
-                      Number(props.row["billed"].replace(/\s+/g, "")) *
+                      Number(props.row["billed_"].replace(/\s+/g, "")) *
                       (15 / 100)
                     ).toFixed(2);
                     return new Intl.NumberFormat("en-US", {
