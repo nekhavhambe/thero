@@ -1592,20 +1592,22 @@ export default function ColumnGrouping({}) {
         return { ...new_el, ...transformedObject };
       });
 
-      // data = data.map((el: any) => {
-      //   let new_el = el;
-      //   new_el.cashflow_monthly_ = JSON.parse(new_el.cashflow_monthly_);
-      //   let flow_: any = new_el.cashflow_monthly_;
-      //   const transformedObject_: any = {};
-      //   for (const [month, data] of Object.entries(flow_)) {
-      //     transformedObject_[month] = data.amount;
-      //   }
+      data = data.map((el: any) => {
 
-      //   console.log(aggregateMonthlyTotals_(JSON.parse(new_el.cashflow)),'-------||||||||--|||||----run')
-      //   new_el['entires']= aggregateMonthlyTotals_(JSON.parse(new_el.cashflow)),
-      //   new_el.cashflow = aggregateMonthlyTotals(JSON.parse(new_el.cashflow));
-      //   return { ...new_el, ...transformedObject };
-      // });
+        let new_el = el;
+        new_el.cashflow_monthly_ = JSON.parse(new_el.cashflow_monthly_);
+        console.log(new_el, 'iiiiiiii')
+        // let flow_: any = new_el.cashflow_monthly_;
+        // const transformedObject_: any = {};
+        // for (const [month, data] of Object.entries(flow_)) {
+        //   transformedObject_[month] = data.amount;
+        // }
+
+        // console.log(aggregateMonthlyTotals_(JSON.parse(new_el.cashflow)),'-------||||||||--|||||----run')
+        // new_el['entires']= aggregateMonthlyTotals_(JSON.parse(new_el.cashflow)),
+        // new_el.cashflow = aggregateMonthlyTotals(JSON.parse(new_el.cashflow));
+        // return { ...new_el, ...transformedObject };
+      });
 
       setRowss(data);
 
