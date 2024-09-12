@@ -1145,7 +1145,7 @@ export default function ColumnGrouping({}) {
       <DataGrid
         style={{ flex: 1 , border:"1px solid red"}}
         rowClass={(row, index) =>
-          row.id.includes('7') || index === 0 ? 'me' : undefined
+          'me' 
         }
         //   rowKeyGetter={rowKeyGetter}
         columns={columns}
