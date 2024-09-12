@@ -6,6 +6,11 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 
 // Example InvoiceList component
 const InvoiceList = ({ invoices }) => {
+
+  const formatAmount = (amount: number) => {
+    return amount.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  }
+
     
   return (
     <div className="invoice-list">
@@ -18,7 +23,9 @@ const InvoiceList = ({ invoices }) => {
       </div>
       
       {!invoices[0] || invoices.length === 0 ? (
-        <p>No invoices available.</p>
+        <div className="flex items-center justify-center h-32 text-gray-500">
+        No invoices available
+      </div>
       ) : (
         <Table>
         <TableHeader>
