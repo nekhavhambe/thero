@@ -875,7 +875,7 @@ export default function ColumnGrouping({}) {
             key: monthEnded,
             name: "Budgted Spending",
             width: "150px",
-            // renderEditCell: Inputs,
+            // renderEditCell: Inputs,  mmmmm
             renderSummaryCell(propss: any) {
               let total = 0;
 
