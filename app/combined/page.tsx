@@ -1134,6 +1134,7 @@ export default function ColumnGrouping({}) {
                 .replace(/,/g, " ");
             },
             renderCell(props: any) {
+              console.log(props.row.cashflow_[props.column.parent.name] && props.row.cashflow[props.column.parent.name], '-----------------------------------------------------------------------ooooooooooooooooooooooooooo')
               if (props.row.cashflow_[props.column.parent.name] && props.row.cashflow[props.column.parent.name]) {
 
                 let revenue_amount = Number(
