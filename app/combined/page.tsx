@@ -1136,7 +1136,7 @@ export default function ColumnGrouping({}) {
                 maximumFractionDigits: 2,
                 useGrouping: true,
               })
-                .format(billed  - actual)
+                .format(actual - billed)
                 .replace(/,/g, " ");
             },
             renderCell(props: any) {
