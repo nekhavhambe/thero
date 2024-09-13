@@ -1184,7 +1184,7 @@ export default function ColumnGrouping({}) {
 
   const columns = [
     {
-      name: "Project Spending Projections",
+      name: "Project Profit Projections",
 
       children: [
         {
@@ -1610,7 +1610,7 @@ export default function ColumnGrouping({}) {
               maximumFractionDigits: 2,
               useGrouping: true,
             })
-              .format(billed - spending)
+              .format(spending - billed )
               .replace(/,/g, " ");
       
           },
