@@ -1136,7 +1136,7 @@ export default function ColumnGrouping({}) {
                 maximumFractionDigits: 2,
                 useGrouping: true,
               })
-                .format(actual - billed)
+                .format((actual - billed))
                 .replace(/,/g, " ");
             },
             renderCell(props: any) {
@@ -1610,7 +1610,7 @@ export default function ColumnGrouping({}) {
               maximumFractionDigits: 2,
               useGrouping: true,
             })
-              .format(spending - billed )
+              .format(billed - spending)
               .replace(/,/g, " ");
       
           },
