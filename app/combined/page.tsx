@@ -370,6 +370,7 @@ export default function ColumnGrouping({}) {
               let total = 0;
 
               rowss.forEach((props: any) => {
+                console.log(props.cashflow_[propss.column.parent.name],props.cashflow_, "------->>>>>>>>>", props.cashflow_[propss.column.parent.name] )
                 if (props.cashflow_[propss.column.parent.name]) {
                   let amount = Number(
                     props.cashflow_[propss.column.parent.name]
@@ -1604,14 +1605,14 @@ export default function ColumnGrouping({}) {
           transformedObject_[month] = data.amount;
         }
 
-        console.log(aggregateMonthlyTotals_(JSON.parse(new_el.cashflow_)),'-------||||||||--|||||----run')
+       
         new_el['entires']= aggregateMonthlyTotals_(JSON.parse(new_el.cashflow_)),
         new_el.cashflow = aggregateMonthlyTotals(JSON.parse(new_el.cashflow_));
         return { ...new_el, ...transformedObject_ };
       });
 
   
-
+      console.log(data,'-------||||||||--|||||----run')
       setRowss(data);
 
       console.log("Received message:", data);
