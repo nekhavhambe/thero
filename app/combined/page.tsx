@@ -1135,14 +1135,14 @@ export default function ColumnGrouping({}) {
             },
             renderCell(props: any) {
               console.log(props.row.cashflow_[props.column.parent.name] && props.row.cashflow[props.column.parent.name], '-----------------------------------------------------------------------ooooooooooooooooooooooooooo')
-              if (props.row.cashflow_[props.column.parent.name] && props.row.cashflow[props.column.parent.name]) {
+              if (true) {
 
                 let revenue_amount = Number(
-                  props.row.cashflow_[props.column.parent.name]
+                  props.row.cashflow_[props.column.parent.name] ? props.row.cashflow_[props.column.parent.name] :0
                 ); 
                 
                 let spending_amount = Number(
-                  props.row.cashflow[props.column.parent.name]
+                  props.row.cashflow[props.column.parent.name] ?  props.row.cashflow[props.column.parent.name] :0
                 ); 
 
 
