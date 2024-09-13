@@ -1599,17 +1599,18 @@ export default function ColumnGrouping({}) {
       
         let flow_: any = new_el.cashflow_monthly_;
         const transformedObject_: any = {};
+
         for (const [month, data] of Object.entries(flow_)) {
           transformedObject_[month] = data.amount;
         }
 
-        console.log(aggregateMonthlyTotals_(JSON.parse(new_el.cashflow)),'-------||||||||--|||||----run')
-        new_el['entires']= aggregateMonthlyTotals_(JSON.parse(new_el.cashflow)),
-        new_el.cashflow = aggregateMonthlyTotals(JSON.parse(new_el.cashflow));
+        console.log(aggregateMonthlyTotals_(JSON.parse(new_el.cashflow_)),'-------||||||||--|||||----run')
+        new_el['entires']= aggregateMonthlyTotals_(JSON.parse(new_el.cashflow_)),
+        new_el.cashflow = aggregateMonthlyTotals(JSON.parse(new_el.cashflow_));
         return { ...new_el, ...transformedObject_ };
       });
 
-      console.log(data, 'iiiiiiii')
+  
 
       setRowss(data);
 
