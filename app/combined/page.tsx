@@ -1607,7 +1607,7 @@ export default function ColumnGrouping({}) {
 
        
         new_el['entires']= aggregateMonthlyTotals_(JSON.parse(new_el.cashflow_)),
-        new_el.cashflow = aggregateMonthlyTotals(JSON.parse(new_el.cashflow_));
+        new_el.cashflow_ = aggregateMonthlyTotals(JSON.parse(new_el.cashflow_));
         return { ...new_el, ...transformedObject_ };
       });
 
