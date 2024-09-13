@@ -750,7 +750,7 @@ export default function ColumnGrouping({}) {
 
                   if(row['row']['entires']){
                     setInvoices(row['row']['entires'][row['column']['parent']['name']])
-                    console.log(row['row'], row['row']['entires'],'----',row['row']['entires'][row['column']['parent']['name']],'runnnnnnnnnn', row['column']['parent']['name'])
+                    console.log(row['row'], row['row']['entires'],'------------------------------',row['row']['entires'][row['column']['parent']['name']],'runnnnnnnnnn', row['column']['parent']['name'])
                   }  
                 };
 
