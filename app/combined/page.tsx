@@ -491,7 +491,7 @@ export default function ColumnGrouping({}) {
             key: monthEnded+"_",
             name: "Budgted",
             width: "190px",
-            renderEditCell: Inputs,
+            // renderEditCell: Inputs,
             renderSummaryCell(propss: any) {
               let total = 0;
 
@@ -531,7 +531,7 @@ export default function ColumnGrouping({}) {
                   (100 / 100);
               }
 
-              return <p style={{color:"green", textDecoration:"underline", cursor:"pointer"}}> {new Intl.NumberFormat("en-US", {
+              return <p style={{}}> {new Intl.NumberFormat("en-US", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,
                 useGrouping: true,
@@ -743,34 +743,36 @@ export default function ColumnGrouping({}) {
                 .format(total)
                 .replace(/,/g, " ");
             },
-            renderEditCell(row){
+            // renderEditCell(row){
 
                 
-                if(row['column']['parent']['name']){
+            //     if(row['column']['parent']['name']){
 
-                  if(row['row']['entires']){
-                    setInvoices(row['row']['entires'][row['column']['parent']['name']])
-                    console.log(row['row'], row['row']['entires'],'------------------------------',row['row']['entires'][row['column']['parent']['name']],'runnnnnnnnnn', row['column']['parent']['name'])
-                  }  
-                };
+            //       if(row['row']['entires']){
+            //         setInvoices(row['row']['entires'][row['column']['parent']['name']])
+            //         console.log(row['row'], row['row']['entires'],'------------------------------',row['row']['entires'][row['column']['parent']['name']],'runnnnnnnnnn', row['column']['parent']['name'])
+            //       }  
+            //     };
 
-                // console.log(row, '-------........martin-------.........', row['column']['parent']['name'])
-                // let rowx = row.row['entires'][clm]
+            //     // console.log(row, '-------........martin-------.........', row['column']['parent']['name'])
+            //     // let rowx = row.row['entires'][clm]
 
 
-                // console.log(row, 'RUNNING-----------APPSX')
-                // setInvoices(rowx ? rowx : [])
-                const doc = document.getElementById("pop")
-                doc.style.display = "flex"
-                //alert(JSON.stringify(row))
+            //     // console.log(row, 'RUNNING-----------APPSX')
+            //     // setInvoices(rowx ? rowx : [])
+            //     const doc = document.getElementById("pop")
+            //     doc.style.display = "flex"
+            //     //alert(JSON.stringify(row))
            
-            },
+            // },
             renderCell(props: any) {
               if (props.row.cashflow[props.column.parent.name]) {
                 let amount = Number(
                   props.row.cashflow[props.column.parent.name]
                 ); //* (100/115)
-                return <p  style={{color:"green",textDecoration:"underline", cursor:'pointer'}}> {new Intl.NumberFormat("en-US", {
+                return <p 
+                //  style={{color:"green",textDecoration:"underline", cursor:'pointer'}}
+                > {new Intl.NumberFormat("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
                   useGrouping: true,
@@ -780,7 +782,9 @@ export default function ColumnGrouping({}) {
                   </p>
               } 
 
-              return <p style={{color:"green",textDecoration:"underline", cursor:'pointer'}}>0.00
+              return <p 
+              // style={{color:"green",textDecoration:"underline", cursor:'pointer'}}
+              >0.00
               </p>;
             },
           },
@@ -871,7 +875,7 @@ export default function ColumnGrouping({}) {
             key: monthEnded,
             name: "Budgted Spending",
             width: "150px",
-            renderEditCell: Inputs,
+            // renderEditCell: Inputs,
             renderSummaryCell(propss: any) {
               let total = 0;
 
@@ -911,7 +915,9 @@ export default function ColumnGrouping({}) {
                   (100 / 100);
               }
 
-              return <p style={{color:"green", textDecoration:"underline", cursor:"pointer"}}> {new Intl.NumberFormat("en-US", {
+              return <p 
+              // style={{color:"green", textDecoration:"underline", cursor:"pointer"}}
+              > {new Intl.NumberFormat("en-US", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,
                 useGrouping: true,
@@ -1754,61 +1760,6 @@ export default function ColumnGrouping({}) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column" , minHeight:40}}>
-
-<div className="loading-screen">
-  <div className="pulse-loader"></div>
-  <p className="loading-text">Saving...</p>
-</div>
-
-
-      <div id='save' style={{ padding: 5, paddingTop: 10, paddingBottom: 10, display:"none", gap:10 }}>
-        <div
-          style={{
-            backgroundColor: "transparent",
-            color: "green",
-            padding: "10px 20px",
-            border: "2px solid green",
-            borderRadius: "5px",
-            cursor: "pointer",
-            fontSize: "14px",
-            transition: "background-color 0.3s",
-            minWidth:150,
-            maxWidth:150,
-            textAlign:"center",
-          }}
-          onClick={()=> {
-            toggleLoadingScreen(true)
-            window.parent.postMessage({xmlx: xmlx, new:true},  "*");
-          }}
-        >
-          Save
-        </div>
-        {/* <div style={{width:30}}></div> */}
-        <div
-          style={{
-            backgroundColor: "transparent",
-            color: "green",
-            padding: "10px 20px",
-            border: "2px solid green",
-            borderRadius: "5px",
-            cursor: "pointer",
-            fontSize: "14px",
-            transition: "background-color 0.3s",
-            maxWidth:300,
-            textAlign:"center",
-          }}
-          onClick={()=> {
-            window.location.reload()
-          }}
-        >
-          Discard
-        </div>
-      </div>
-
-      <div id="pop" style={{display:"none",width:'100vw', height:'135vh', backgroundColor:"rgba(0,0,0,0.5)", backdropFilter:"blur(5px)", position:"absolute", top:0, left:0, zIndex:99999999, justifyContent:"center", alignItems:"flex-start" }}>
-                <div style={{width:900, height:500, backgroundColor:"white", borderRadius:5, marginTop:140, overflow:"scroll"}}>    <InvoiceList invoices={[invoices]}  />
-               </div>
-              </div>
 
       <DataGrid
         style={{ flex: 1 , border:"1px solid green"}}
