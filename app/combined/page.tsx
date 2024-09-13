@@ -1762,10 +1762,8 @@ export default function ColumnGrouping({}) {
     <div style={{ display: "flex", flexDirection: "column" , minHeight:40}}>
 
       <DataGrid
-        style={{ flex: 1 , border:"1px solid green"}}
-        rowClass={(row, index) =>
-          'me' 
-        }
+        style={{ flex: 1 ,    border: "2px solid green"}}
+
         //   rowKeyGetter={rowKeyGetter}
         columns={columns}
         rows={rowss}
