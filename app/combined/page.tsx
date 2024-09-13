@@ -1099,6 +1099,69 @@ export default function ColumnGrouping({}) {
                 .replace(/,/g, " ");
             },
           },
+          {
+            key: "2__" + i,
+            name: "Actual Profit",
+            width: "190px",
+            renderSummaryCell(propss: any) {
+              let actual = 0;
+              rowss.forEach((props: any) => {
+                if (props.cashflow_[propss.column.parent.name]) {
+                  let amount = Number(
+                    props.cashflow_[propss.column.parent.name]
+                  ); //* (100/115)
+                  actual += amount;
+                }
+              });
+
+              let billed = 0;
+
+              rowss.forEach((props: any) => {
+                if (props.cashflow[propss.column.parent.name]) {
+                  let amount = Number(
+                    props.cashflow[propss.column.parent.name]
+                  ); //* (100/115)
+                 billed += amount;
+                }
+              });
+
+              return new Intl.NumberFormat("en-US", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+                useGrouping: true,
+              })
+                .format(billed  - actual)
+                .replace(/,/g, " ");
+            },
+            renderCell(props: any) {
+              if (props.row.cashflow_[props.column.parent.name] && props.row.cashflow[props.column.parent.name]) {
+
+                let revenue_amount = Number(
+                  props.row.cashflow_[props.column.parent.name]
+                ); 
+                
+                let spending_amount = Number(
+                  props.row.cashflow[props.column.parent.name]
+                ); 
+
+
+                return new Intl.NumberFormat("en-US", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                  useGrouping: true,
+                })
+                  .format(revenue_amount - spending_amount)
+                  .replace(/,/g, " ");
+              }
+
+
+
+
+              
+
+              return "0.00";
+            },
+          },
         ],
         key: "9" + i,
       });
