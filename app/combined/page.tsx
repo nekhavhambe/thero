@@ -1107,7 +1107,7 @@ export default function ColumnGrouping({}) {
           },
           {
             key: "2__" + i,
-            name: "Actual Profit",
+            name: "Actual Profit\(Loss)",
             width: "190px",
             renderSummaryCell(propss: any) {
               let actual = 0;
@@ -1588,7 +1588,7 @@ export default function ColumnGrouping({}) {
         {
           key: "actual_profit",
           width: "250px",
-          name: "Actual Profit",
+          name: "Actual Profit\(Loss)",
           renderSummaryCell() {
 
             let spending = 0;
