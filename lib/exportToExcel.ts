@@ -23,7 +23,7 @@ function addSummaryRow(ws: ExcelJS.Worksheet, row: any[], rowIndex: number, colC
   });
   r.eachCell((cell) => {
     cell.font = { bold: isBold, size: 10 };
-    if (isBold) cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFE0F0E0' } };
+    if (isBold) cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFFF8E1' } };
     cell.border = {
       top: { style: 'thin' },
       left: { style: 'thin' },
@@ -98,7 +98,7 @@ export async function exportTableToExcel(rowss: any[], filename = 'Billing_Repor
     const startCol = ci;
     r2.getCell(ci).value = m;
     r2.getCell(ci).font = { bold: true, size: 10, color: { argb: 'FFFFFFFF' } };
-    r2.getCell(ci).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF4E342E' } };
+    r2.getCell(ci).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD4A017' } };
     r2.getCell(ci).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
     for (let x = 0; x < subCols.length; x++) {
       r2.getCell(ci + x).border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
@@ -120,7 +120,7 @@ export async function exportTableToExcel(rowss: any[], filename = 'Billing_Repor
     subCols.forEach(s => {
       r3.getCell(ci).value = s;
       r3.getCell(ci).font = { bold: true, size: 9 };
-      r3.getCell(ci).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFEFEBE9' } };
+      r3.getCell(ci).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFFF8E1' } };
       r3.getCell(ci).border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
       r3.getCell(ci).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
       ci++;
@@ -218,7 +218,7 @@ export async function exportTableToExcel(rowss: any[], filename = 'Billing_Repor
   for (let c = 1; c <= totalCols; c++) {
     const cell = totalRow.getCell(c);
     cell.font = { bold: true, size: 10 };
-    cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD7CCC8' } };
+    cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFFF8E1' } };
     cell.border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
     cell.alignment = { vertical: 'middle', horizontal: c > 1 ? 'right' : 'left' };
     if (c > 1 && typeof cell.value === 'number') cell.numFmt = '#,##0.00';
@@ -262,7 +262,7 @@ export async function exportSpendingToExcel(rowss: any[], filename = 'Spending_R
     const startCol = ci;
     r2.getCell(ci).value = m;
     r2.getCell(ci).font = { bold: true, size: 10, color: { argb: 'FFFFFFFF' } };
-    r2.getCell(ci).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF4E342E' } };
+    r2.getCell(ci).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD4A017' } };
     r2.getCell(ci).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
     for (let x = 0; x < subCols.length; x++) {
       r2.getCell(ci + x).border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
@@ -284,7 +284,7 @@ export async function exportSpendingToExcel(rowss: any[], filename = 'Spending_R
     subCols.forEach(s => {
       r3.getCell(ci).value = s;
       r3.getCell(ci).font = { bold: true, size: 9 };
-      r3.getCell(ci).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFEFEBE9' } };
+      r3.getCell(ci).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFFF8E1' } };
       r3.getCell(ci).border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
       r3.getCell(ci).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
       ci++;
@@ -380,7 +380,7 @@ export async function exportSpendingToExcel(rowss: any[], filename = 'Spending_R
   for (let c = 1; c <= totalCols; c++) {
     const cell = totalRow.getCell(c);
     cell.font = { bold: true, size: 10 };
-    cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD7CCC8' } };
+    cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFFFF8E1' } };
     cell.border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
     cell.alignment = { vertical: 'middle', horizontal: c > 1 ? 'right' : 'left' };
     if (c > 1 && typeof cell.value === 'number') cell.numFmt = '#,##0.00';
@@ -429,7 +429,7 @@ export async function exportCombinedToExcel(rowss: any[], filename = 'Combined_R
     ws.mergeCells(rowIdx, ci, rowIdx, ci + subCols.length - 1);
     r2.getCell(ci).value = m;
     r2.getCell(ci).font = { bold: true, size: 10, color: { argb: 'FFFFFFFF' } };
-    r2.getCell(ci).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF4E342E' } };
+    r2.getCell(ci).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD4A017' } };
     for (let x = 0; x < subCols.length; x++) {
       r2.getCell(ci + x).border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
       r2.getCell(ci + x).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
