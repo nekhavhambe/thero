@@ -10,6 +10,7 @@ import DataGrid, {
 import React, { useState, useEffect } from "react";
 import Inputs from "./Input";
 import InvoiceList from "./Invoice";
+import { exportSpendingToExcel } from "../../lib/exportToExcel";
 
 // import { renderCoordinates } from "./renderers";
 // import type { Props } from './types';
@@ -1110,6 +1111,26 @@ export default function ColumnGrouping({}) {
 </div>
 
 
+      <div style={{ padding: 5, paddingTop: 10, paddingBottom: 10, display:"flex", gap:10, alignItems:"center" }}>
+        <div
+          style={{
+            backgroundColor: "transparent",
+            color: "green",
+            padding: "10px 20px",
+            border: "2px solid green",
+            borderRadius: "5px",
+            cursor: "pointer",
+            fontSize: "14px",
+            transition: "background-color 0.3s",
+            minWidth:150,
+            maxWidth:150,
+            textAlign:"center",
+          }}
+          onClick={() => exportSpendingToExcel(rowss)}
+        >
+          Export Excel
+        </div>
+      </div>
       <div id='save' style={{ padding: 5, paddingTop: 10, paddingBottom: 10, display:"none", gap:10 }}>
         <div
           style={{
