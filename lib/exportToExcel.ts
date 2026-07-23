@@ -95,27 +95,35 @@ export async function exportTableToExcel(rowss: any[], filename = 'Billing_Repor
     r2.getCell(ci - 1).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
   });
   months.forEach(m => {
-    r2.getCell(ci++).value = m;
-    r2.getCell(ci - 1).font = { bold: true, size: 10, color: { argb: 'FFFFFFFF' } };
-    r2.getCell(ci - 1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1565C0' } };
-    r2.getCell(ci - 1).border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
-    r2.getCell(ci - 1).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
+    const startCol = ci;
+    r2.getCell(ci).value = m;
+    r2.getCell(ci).font = { bold: true, size: 10, color: { argb: 'FFFFFFFF' } };
+    r2.getCell(ci).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1565C0' } };
+    r2.getCell(ci).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
+    for (let x = 0; x < subCols.length; x++) {
+      r2.getCell(ci + x).border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+      r2.getCell(ci + x).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
+    }
+    ws.mergeCells(rowIdx, startCol, rowIdx, startCol + subCols.length - 1);
+    ci += subCols.length;
   });
-  if (months.length > 0) ws.mergeCells(rowIdx, 9, rowIdx, 8 + months.length * 7);
   rowIdx++;
 
   const r3 = ws.getRow(rowIdx);
   ci = 1;
   for (let i = 0; i < staticHeaders.length; i++) {
-    r3.getCell(ci++).value = '';
+    r3.getCell(ci).value = '';
+    r3.getCell(ci).border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+    ci++;
   }
   months.forEach(() => {
     subCols.forEach(s => {
-      r3.getCell(ci++).value = s;
-      r3.getCell(ci - 1).font = { bold: true, size: 9 };
-      r3.getCell(ci - 1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFE3F2FD' } };
-      r3.getCell(ci - 1).border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
-      r3.getCell(ci - 1).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
+      r3.getCell(ci).value = s;
+      r3.getCell(ci).font = { bold: true, size: 9 };
+      r3.getCell(ci).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFE3F2FD' } };
+      r3.getCell(ci).border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+      r3.getCell(ci).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
+      ci++;
     });
   });
   rowIdx++;
@@ -251,24 +259,35 @@ export async function exportSpendingToExcel(rowss: any[], filename = 'Spending_R
     r2.getCell(ci - 1).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
   });
   months.forEach(m => {
-    r2.getCell(ci++).value = m;
-    r2.getCell(ci - 1).font = { bold: true, size: 10, color: { argb: 'FFFFFFFF' } };
-    r2.getCell(ci - 1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1565C0' } };
-    r2.getCell(ci - 1).border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
-    r2.getCell(ci - 1).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
+    const startCol = ci;
+    r2.getCell(ci).value = m;
+    r2.getCell(ci).font = { bold: true, size: 10, color: { argb: 'FFFFFFFF' } };
+    r2.getCell(ci).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF1565C0' } };
+    r2.getCell(ci).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
+    for (let x = 0; x < subCols.length; x++) {
+      r2.getCell(ci + x).border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+      r2.getCell(ci + x).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
+    }
+    ws.mergeCells(rowIdx, startCol, rowIdx, startCol + subCols.length - 1);
+    ci += subCols.length;
   });
   rowIdx++;
 
   const r3 = ws.getRow(rowIdx);
   ci = 1;
-  for (let i = 0; i < staticHeaders.length; i++) r3.getCell(ci++).value = '';
+  for (let i = 0; i < staticHeaders.length; i++) {
+    r3.getCell(ci).value = '';
+    r3.getCell(ci).border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+    ci++;
+  }
   months.forEach(() => {
     subCols.forEach(s => {
-      r3.getCell(ci++).value = s;
-      r3.getCell(ci - 1).font = { bold: true, size: 9 };
-      r3.getCell(ci - 1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFE3F2FD' } };
-      r3.getCell(ci - 1).border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
-      r3.getCell(ci - 1).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
+      r3.getCell(ci).value = s;
+      r3.getCell(ci).font = { bold: true, size: 9 };
+      r3.getCell(ci).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFE3F2FD' } };
+      r3.getCell(ci).border = { top: { style: 'thin' }, left: { style: 'thin' }, bottom: { style: 'thin' }, right: { style: 'thin' } };
+      r3.getCell(ci).alignment = { vertical: 'middle', horizontal: 'center', wrapText: true };
+      ci++;
     });
   });
   rowIdx++;
